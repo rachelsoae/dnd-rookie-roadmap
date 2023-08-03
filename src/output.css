@@ -130,6 +130,7 @@ main .main__related-links {
   display: flex;
   width: 100%;
   align-items: center;
+  flex-wrap: wrap;
   height: 4rem;
   margin: 0.2em;
   background-color: #8D99AE;
@@ -145,6 +146,9 @@ main .main__related-text {
 }
 main .main__related-link:hover {
   text-decoration: underline #EF233C;
+}
+main .main--bold {
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=output.css.map */
