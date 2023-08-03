@@ -13,7 +13,7 @@ const Skill = () => {
       <h2 className='main__heading'>{skill.name}</h2>
       <div className='main__divider'></div>
       <div className='main__related-links'>
-        <p className='main__related-text'>Related:</p>
+        <span className='main__related-text'>Related:</span>
         <NavLink to={`/abilities/${relatedAbility.toLowerCase()}`} className='main__related-text main__related-link'>{relatedAbility}</NavLink>
       </div>
       {descriptions}
