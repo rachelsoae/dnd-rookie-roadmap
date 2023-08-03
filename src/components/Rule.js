@@ -6,7 +6,7 @@ const Rule = () => {
   const index = useParams().id
   const rule = rules.find(rule => rule.index === index)
 
-  const descriptions = rule.desc.split('#').filter(desc => desc).map(desc => <p>{desc}</p>)
+  const descriptions = rule.desc.split('\n').filter(desc => desc).map(desc => <p>{desc}</p>)
 
   return (
     <main>
