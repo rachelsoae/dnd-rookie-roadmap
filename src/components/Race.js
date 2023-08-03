@@ -11,7 +11,7 @@ const Race = () => {
   })
 
   const abilityLinks =  relatedAbilities.map(relatedAbility => {
-    return <NavLink to={`/ability/${relatedAbility.toLowerCase()}`} className='main__related-text main__related-link'>{relatedAbility}</NavLink>
+    return <NavLink to={`/abilities/${relatedAbility.toLowerCase()}`} className='main__related-text main__related-link'>{relatedAbility}</NavLink>
   })
 
   return (
