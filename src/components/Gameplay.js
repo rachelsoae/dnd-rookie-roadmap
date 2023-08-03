@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
-const Gameplay = () => {
+const Gameplay = ({rules, setRules}) => {
+ 
   return (
     <main>
       <h2 className='main__heading'>Gameplay Basics</h2>
