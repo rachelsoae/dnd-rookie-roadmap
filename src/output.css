@@ -50,6 +50,7 @@ nav {
 }
 nav .link {
   font-family: "Caudex", serif;
+  letter-spacing: 0.75px;
   color: #EDF2F4;
   height: 3rem;
   text-decoration: none;
@@ -73,6 +74,7 @@ main {
 main .main__heading {
   color: #D90429;
   font-family: "Caudex", serif;
+  letter-spacing: 0.75px;
   font-size: 4rem;
   margin: 0;
 }
@@ -98,6 +100,7 @@ main .main--emphasis {
 }
 main .main__subheading {
   font-family: "Caudex", serif;
+  letter-spacing: 0.75px;
   color: #2B2D42;
   font-size: 3rem;
   margin: 0.5em 0;
@@ -121,6 +124,26 @@ main .main__link {
   text-decoration: underline;
 }
 main .main__link:hover {
+  text-decoration: underline #EF233C;
+}
+main .main__related-links {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 4rem;
+  margin: 0.2em;
+  background-color: #8D99AE;
+  border-radius: 4px;
+  padding-left: 1em;
+}
+main .main__related-text {
+  font-family: "Sarala", sans-serif;
+  color: #EDF2F4;
+  font-size: 1.75rem;
+  margin: 0 0.3em;
+  text-decoration: none;
+}
+main .main__related-link:hover {
   text-decoration: underline #EF233C;
 }
 

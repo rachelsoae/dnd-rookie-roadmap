@@ -5,8 +5,12 @@ $anti-flash-white: #EDF2F4;
 $bright-red: #EF233C;
 $dark-red: #D90429;
 $logo-font: 'Cinzel Decorative', cursive;
-$header-font: 'Caudex', serif;
 $body-font: 'Sarala', sans-serif;
+
+@mixin header-font {
+  font-family: 'Caudex', serif;
+  letter-spacing: 0.75px;
+}
 
 * {
   // border: 1px $dark-red solid;
@@ -63,7 +67,7 @@ nav {
   height: 100%;
 
   .link {
-    font-family: $header-font;
+    @include header-font;
     color: $anti-flash-white;
     height: 3rem;
     text-decoration: none;
@@ -89,7 +93,7 @@ main {
 
   .main__heading {
     color: $dark-red;
-    font-family: $header-font;
+    @include header-font;
     font-size: 4rem;
     margin: 0;
   }
@@ -119,7 +123,7 @@ main {
   }
 
   .main__subheading {
-    font-family: $header-font;
+    @include header-font;
     color: $space-cadet;
     font-size: 3rem;
     margin: 0.5em 0;
@@ -148,6 +152,29 @@ main {
   }
 
   .main__link:hover {
+    text-decoration: underline $bright-red;
+  }
+
+  .main__related-links {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 4rem;
+    margin: 0.2em;
+    background-color: $accent-gray;
+    border-radius: 4px;
+    padding-left: 1em;
+  }
+
+  .main__related-text {
+    font-family: $body-font;
+    color: $anti-flash-white;
+    font-size: 1.75rem;
+    margin: 0 0.3em;
+    text-decoration: none;
+  }
+
+  .main__related-link:hover {
     text-decoration: underline $bright-red;
   }
 

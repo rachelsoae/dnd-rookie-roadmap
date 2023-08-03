@@ -6,7 +6,10 @@ import Home from './Home';
 import Gameplay from './Gameplay';
 import Rule from './Rule';
 import AbilitySkill from './AbilitySkill';
+import Proficiency from './Proficiency';
 import RaceClass from './RaceClass';
+import Race from './Race';
+import Class from './Class';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -23,9 +26,10 @@ function App() {
           <Route path='/gameplay-basics' element={<Gameplay />} />
           <Route path='/gameplay-basics/:id' element={<Rule />} />
           <Route path='/abilities-and-skills' element={<AbilitySkill />} />
+          <Route path='/abilities-and-skills/:id' element={<Proficiency />} />
           <Route path='/races-and-classes' element={<RaceClass />} />
-          {/* <Route path='/abilities-and-skills/:id' element={<Rule />} />
-          <Route path='/abilities-and-skills/ability/:id' element={<Rule />} /> */}
+          <Route path='/races/:id' element={<Race />} />
+          <Route path='/classes/:id' element={<Class />} />
         </Routes>
       </section>
     </div>
