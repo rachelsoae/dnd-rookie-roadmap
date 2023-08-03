@@ -14,7 +14,7 @@ const Ability = () => {
 
   return (
     <main>
-      <h2 className='main__heading'>{ability.full_name}</h2>
+      <h2 className='main__heading'>{ability.full_name} ({ability.name})</h2>
       <div className='main__divider'></div>
       {relatedSkills.length ?
       <div className='main__related-links'>
