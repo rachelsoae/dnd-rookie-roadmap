@@ -1,0 +1,150 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #EDF2F4;
+}
+
+html,
+body,
+.root,
+.app {
+  height: 100vh;
+  margin: 0;
+}
+
+.app__header {
+  background-color: #2B2D42;
+  height: 15%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  position: relative;
+}
+
+.app__body {
+  height: 85%;
+}
+
+h1 {
+  font-family: "Cinzel Decorative", cursive;
+  color: #D90429;
+  margin: 0 1em;
+  width: 60%;
+  font-size: 4rem;
+}
+
+.app__body {
+  display: flex;
+}
+
+nav {
+  background-color: #2B2D42;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+}
+nav .link {
+  font-family: "Caudex", serif;
+  letter-spacing: 0.75px;
+  color: #EDF2F4;
+  height: 3rem;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 1em 2em;
+}
+nav .link:hover {
+  text-decoration: underline #EF233C;
+}
+nav .current-tab {
+  background-color: #EDF2F4;
+  color: #D90429;
+}
+
+main {
+  width: 80%;
+  height: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+}
+main .main__heading {
+  color: #D90429;
+  font-family: "Caudex", serif;
+  letter-spacing: 0.75px;
+  font-size: 4rem;
+  margin: 0;
+}
+main .main__divider {
+  height: 1px;
+  width: 100%;
+  background-color: #8D99AE;
+  margin: 15px 0;
+}
+main p,
+main .main__links {
+  color: #2B2D42;
+  font-family: "Sarala", sans-serif;
+}
+main p,
+main .main--emphasis,
+main .main__links {
+  font-size: 2rem;
+}
+main .main--emphasis {
+  font-family: "Cinzel Decorative", cursive;
+  color: #D90429;
+}
+main .main__subheading {
+  font-family: "Caudex", serif;
+  letter-spacing: 0.75px;
+  color: #2B2D42;
+  font-size: 3rem;
+  margin: 0.5em 0;
+}
+main .main__rules {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .main__rule-section {
+  margin: 1em 8em;
+  width: 30%;
+}
+main .main__links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2em;
+}
+main .main__link {
+  color: #2B2D42;
+  font-family: "Sarala", sans-serif;
+  text-decoration: underline;
+}
+main .main__link:hover {
+  text-decoration: underline #EF233C;
+}
+main .main__related-links {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 4rem;
+  margin: 0.2em;
+  background-color: #8D99AE;
+  border-radius: 4px;
+  padding-left: 1em;
+}
+main .main__related-text {
+  font-family: "Sarala", sans-serif;
+  color: #EDF2F4;
+  font-size: 1.75rem;
+  margin: 0 0.3em;
+  text-decoration: none;
+}
+main .main__related-link:hover {
+  text-decoration: underline #EF233C;
+}
+
+/*# sourceMappingURL=output.css.map */

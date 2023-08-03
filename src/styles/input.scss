@@ -1,0 +1,184 @@
+$space-cadet: #2B2D42;
+$accent-gray: #8D99AE;
+$light-gray: #C4CAD6;
+$anti-flash-white: #EDF2F4;
+$bright-red: #EF233C;
+$dark-red: #D90429;
+$logo-font: 'Cinzel Decorative', cursive;
+$body-font: 'Sarala', sans-serif;
+
+@mixin header-font {
+  font-family: 'Caudex', serif;
+  letter-spacing: 0.75px;
+}
+
+* {
+  // border: 1px $dark-red solid;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $anti-flash-white;
+}
+
+html,
+body,
+.root,
+.app {
+  height: 100vh;
+  margin: 0;
+}
+
+.app__header {
+  background-color: $space-cadet;
+  height: 15%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 4px 0px rgb(0, 0, 0, 0.25);
+  z-index: 1;
+  position: relative;
+}
+
+.app__body {
+  height: 85%;
+}
+
+h1 {
+  font-family: $logo-font;
+  color: $dark-red;
+  margin: 0 1em;
+  width: 60%;
+  font-size: 4rem;
+}
+
+.app__body {
+  display: flex;
+}
+
+nav {
+  background-color: $space-cadet;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+
+  .link {
+    @include header-font;
+    color: $anti-flash-white;
+    height: 3rem;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1em 2em;
+  }
+  
+  .link:hover {
+    text-decoration: underline $bright-red;
+  }
+  
+  .current-tab {
+    background-color: $anti-flash-white;
+    color: $dark-red;
+  }
+}
+
+main {
+  width: 80%;
+  height: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+
+  .main__heading {
+    color: $dark-red;
+    @include header-font;
+    font-size: 4rem;
+    margin: 0;
+  }
+
+  .main__divider {
+    height: 1px;
+    width: 100%;
+    background-color: $accent-gray;
+    margin: 15px 0;
+  }
+
+  p,
+  .main__links {
+    color: $space-cadet;
+    font-family: $body-font;
+  }
+
+  p,
+  .main--emphasis,
+  .main__links {
+    font-size: 2rem;
+  }
+
+  .main--emphasis {
+    font-family: $logo-font;
+    color: $dark-red;
+  }
+
+  .main__subheading {
+    @include header-font;
+    color: $space-cadet;
+    font-size: 3rem;
+    margin: 0.5em 0;
+  }
+
+  .main__rules {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .main__rule-section {
+    margin: 1em 8em;
+    width: 30%;
+  }
+
+  .main__links {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+  }
+
+  .main__link {
+    color: $space-cadet;
+    font-family: $body-font;
+    text-decoration: underline;
+  }
+
+  .main__link:hover {
+    text-decoration: underline $bright-red;
+  }
+
+  .main__related-links {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 4rem;
+    margin: 0.2em;
+    background-color: $accent-gray;
+    border-radius: 4px;
+    padding-left: 1em;
+  }
+
+  .main__related-text {
+    font-family: $body-font;
+    color: $anti-flash-white;
+    font-size: 1.75rem;
+    margin: 0 0.3em;
+    text-decoration: none;
+  }
+
+  .main__related-link:hover {
+    text-decoration: underline $bright-red;
+  }
+
+}
+
+
+
