@@ -72,7 +72,7 @@ nav {
   }
   
   .link:hover {
-    text-decoration: underline;
+    text-decoration: underline $bright-red;
   }
   
   .current-tab {
@@ -87,31 +87,71 @@ main {
   padding: 5%;
   box-sizing: border-box;
 
-  h2 {
+  .main__heading {
     color: $dark-red;
     font-family: $header-font;
     font-size: 4rem;
     margin: 0;
   }
 
-  .divider {
+  .main__divider {
     height: 1px;
     width: 100%;
     background-color: $accent-gray;
     margin: 15px 0;
   }
 
-  p {
+  p,
+  .main__links {
     color: $space-cadet;
     font-family: $body-font;
+  }
+
+  p,
+  .main--emphasis,
+  .main__links {
     font-size: 2rem;
   }
 
-  h3 {
+  .main--emphasis {
     font-family: $logo-font;
     color: $dark-red;
-    font-size: 2rem;
   }
+
+  .main__subheading {
+    font-family: $header-font;
+    color: $space-cadet;
+    font-size: 3rem;
+    margin: 0.5em 0;
+  }
+
+  .main__rules {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .main__rule-section {
+    margin: 1em 10em;
+    width: 30%;
+  }
+
+  .main__links {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+  }
+
+  .main__link {
+    color: $space-cadet;
+    font-family: $body-font;
+    text-decoration: underline;
+  }
+
+  .main__link:hover {
+    text-decoration: underline $bright-red;
+  }
+
 }
+
 
 

@@ -57,7 +57,7 @@ nav .link {
   padding: 1em 2em;
 }
 nav .link:hover {
-  text-decoration: underline;
+  text-decoration: underline #EF233C;
 }
 nav .current-tab {
   background-color: #EDF2F4;
@@ -70,27 +70,58 @@ main {
   padding: 5%;
   box-sizing: border-box;
 }
-main h2 {
+main .main__heading {
   color: #D90429;
   font-family: "Caudex", serif;
   font-size: 4rem;
   margin: 0;
 }
-main .divider {
+main .main__divider {
   height: 1px;
   width: 100%;
   background-color: #8D99AE;
   margin: 15px 0;
 }
-main p {
+main p,
+main .main__links {
   color: #2B2D42;
   font-family: "Sarala", sans-serif;
+}
+main p,
+main .main--emphasis,
+main .main__links {
   font-size: 2rem;
 }
-main h3 {
+main .main--emphasis {
   font-family: "Cinzel Decorative", cursive;
   color: #D90429;
-  font-size: 2rem;
+}
+main .main__subheading {
+  font-family: "Caudex", serif;
+  color: #2B2D42;
+  font-size: 3rem;
+  margin: 0.5em 0;
+}
+main .main__rules {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .main__rule-section {
+  margin: 1em 10em;
+  width: 30%;
+}
+main .main__links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2em;
+}
+main .main__link {
+  color: #2B2D42;
+  font-family: "Sarala", sans-serif;
+  text-decoration: underline;
+}
+main .main__link:hover {
+  text-decoration: underline #EF233C;
 }
 
 /*# sourceMappingURL=output.css.map */
