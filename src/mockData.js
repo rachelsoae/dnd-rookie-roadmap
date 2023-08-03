@@ -258,17 +258,17 @@ const skills = [
     "url": "/api/skills/animal-handling"
   },
   {
-    "index": "animal-handling",
-    "name": "Animal Handling",
+    "index": "arcana",
+    "name": "Arcana",
     "desc": [
-        "When there is any question whether you can calm down a domesticated animal, keep a mount from getting spooked, or intuit an animal's intentions, the GM might call for a Wisdom (Animal Handling) check. You also make a Wisdom (Animal Handling) check to control your mount when you attempt a risky maneuver."
+        "Your Intelligence (Arcana) check measures your ability to recall lore about spells, magic items, eldritch symbols, magical traditions, the planes of existence, and the inhabitants of those planes."
     ],
     "ability_score": {
-        "index": "wis",
-        "name": "WIS",
-        "url": "/api/ability-scores/wis"
+        "index": "int",
+        "name": "INT",
+        "url": "/api/ability-scores/int"
     },
-    "url": "/api/skills/animal-handling"
+    "url": "/api/skills/arcana"
   },
   {
     "index": "athletics",

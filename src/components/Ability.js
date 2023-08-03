@@ -18,7 +18,7 @@ const Ability = () => {
       <div className='main__divider'></div>
       {relatedSkills.length ?
       <div className='main__related-links'>
-        <p className='main__related-text'>Related Links:</p>
+        <p className='main__related-text'>Related:</p>
         {relatedSkills}
       </div> : 
       <div className='main__related-links' style={{display: 'none'}} />
