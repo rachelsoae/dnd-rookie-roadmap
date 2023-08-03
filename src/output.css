@@ -1,13 +1,96 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  font-size: 62.5%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #EDF2F4;
 }
+
+html,
+body,
+.root,
+.app {
+  height: 100vh;
+  margin: 0;
+}
+
+.app__header {
+  background-color: #2B2D42;
+  height: 15%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  position: relative;
+}
+
+.app__body {
+  height: 85%;
+}
+
+h1 {
+  font-family: "Cinzel Decorative", cursive;
+  color: #D90429;
+  margin: 0 1em;
+  width: 60%;
+  font-size: 4rem;
+}
+
+.app__body {
+  display: flex;
+}
+
+nav {
+  background-color: #2B2D42;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+}
+nav .link {
+  font-family: "Caudex", serif;
+  color: #EDF2F4;
+  height: 3rem;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 1em 2em;
+}
+nav .link:hover {
+  text-decoration: underline;
+}
+nav .current-tab {
+  background-color: #EDF2F4;
+  color: #D90429;
+}
+
+main {
+  width: 80%;
+  height: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+}
+main h2 {
+  color: #D90429;
+  font-family: "Caudex", serif;
+  font-size: 4rem;
+  margin: 0;
+}
+main .divider {
+  height: 1px;
+  width: 100%;
+  background-color: #8D99AE;
+  margin: 15px 0;
+}
+main p {
+  color: #2B2D42;
+  font-family: "Sarala", sans-serif;
+  font-size: 2rem;
+}
+main h3 {
+  font-family: "Cinzel Decorative", cursive;
+  color: #D90429;
+  font-size: 2rem;
+}
+
+/*# sourceMappingURL=output.css.map */
