@@ -1,17 +1,18 @@
-import { NavLink, useParams  } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
+import { rules } from '../mockData'
 
 const Rule = () => {
   // instead of useParams, access the "name" key of the incoming object - already capitalized
-  const rule = useParams().id
+  const index = useParams().id
+  const rule = rules.find(rule => rule.index === index)
+
+  const descriptions = rule.desc.split('#').filter(desc => desc).map(desc => <p>{desc}</p>)
 
   return (
     <main>
-      <h2 className='main__heading'>{rule}</h2>
+      <h2 className='main__heading'>{rule.name}</h2>
       <div className='main__divider'></div>
-      <p>
-        {/* access "desc" key */}
-        {rule} description
-      </p>
+      {descriptions}
     </main>
   )
 }
