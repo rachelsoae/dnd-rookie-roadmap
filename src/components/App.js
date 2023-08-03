@@ -13,6 +13,10 @@ import Class from './Class';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
+  // fetch dynamically by interpolating id into path; maybe fetch all data at once and then create arrays of data - kind of like a local 
+  // Gameplay Basics: `https://www.dnd5eapi.co/api/rule-sections/${id}`
+  // Ability Scores 
+
   return (
     <div className='app'>
       <header className='app__header'>
