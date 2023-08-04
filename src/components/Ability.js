@@ -22,5 +22,5 @@ Ability.propTypes = {
     "desc": PropTypes.arrayOf(PropTypes.string),
     "skills": PropTypes.arrayOf(PropTypes.object),
     "url": PropTypes.string
-  }).isRequired
+  })
 }
