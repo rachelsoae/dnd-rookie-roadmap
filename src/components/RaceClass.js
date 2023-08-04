@@ -13,7 +13,7 @@ const RaceClass = ({ updateRace, updateClass }) => {
             <NavLink to='/races/dwarf' className='main__link' onClick={e => updateRace(e)} id='dwarf'>Dwarf</NavLink>
             <NavLink to='/races/elf' className='main__link' onClick={e => updateRace(e)} id='elf'>Elf</NavLink>
             <NavLink to='/races/gnome' className='main__link' onClick={e => updateRace(e)} id='gnome'>Gnome</NavLink>
-            <NavLink to='/races/half-elf' className='main__link' onClick={e => updateRace(e)} id='half'>Half-Elf</NavLink>
+            <NavLink to='/races/half-elf' className='main__link' onClick={e => updateRace(e)} id='half-elf'>Half-Elf</NavLink>
             <NavLink to='/races/half-orc' className='main__link' onClick={e => updateRace(e)} id='half-orc'>Half-Orc</NavLink>
             <NavLink to='/races/halfling' className='main__link' onClick={e => updateRace(e)} id='halfling'>Halfling</NavLink>
             <NavLink to='/races/human' className='main__link' onClick={e => updateRace(e)} id='human'>Human</NavLink>

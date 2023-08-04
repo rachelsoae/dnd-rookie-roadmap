@@ -1,7 +1,3 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Loading from './Loading'
-
 const Rule = ({ rule }) => {
   const formatHeader = (phrase) => {
     const words = phrase.split(' ');
