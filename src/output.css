@@ -151,4 +151,23 @@ main .main--bold {
   font-weight: 700;
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeCycle 1.5s infinite;
+}
+
+@keyframes fadeCycle {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /*# sourceMappingURL=output.css.map */

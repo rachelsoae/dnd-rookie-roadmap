@@ -11,6 +11,7 @@ import Skill from './Skill';
 import RaceClass from './RaceClass';
 import Race from './Race';
 import Class from './Class';
+import Loading from './Loading';
 import { getData } from '../apiCalls';
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -134,11 +135,15 @@ function App() {
 
   }, [])
 
-  setTimeout(console.log('rules', rules), 8000)
-  setTimeout(console.log('abilities', abilities), 8000)
-  setTimeout(console.log('skills', skills), 8000)
-  setTimeout(console.log('races', races), 8000)
-  setTimeout(console.log('classes', classes), 8000)
+  const [rule, setRule] = useState({});
+
+  const updateRule = (event) => {
+    console.log(event.target.id)
+    console.log(rules)
+    const currentRule = rules.find(rule => rule.index === event.target.id)
+    setRule(currentRule)
+  }
+
 
   return (
     <div className='app'>
@@ -150,14 +155,14 @@ function App() {
         <Nav />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/gameplay-basics' element={<Gameplay rules={rules} setRules={setRules} />} />
-          <Route path='/gameplay-basics/:id' element={<Rule rule={rules} />} />
-          <Route path='/abilities-and-skills' element={<AbilitySkill />} />
-          <Route path='/abilities/:id' element={<Ability abilities={abilities} />} />
-          <Route path='/skills/:id' element={<Skill skills={skills} />} />
-          <Route path='/races-and-classes' element={<RaceClass />} />
-          <Route path='/races/:id' element={<Race />} />
-          <Route path='/classes/:id' element={<Class />} />
+          <Route path='/gameplay-basics' element={rules.length ? <Gameplay updateRule={updateRule} /> : <Loading />} />
+          <Route path='/gameplay-basics/:id' element={<Rule rule={rule} />} />
+          <Route path='/abilities-and-skills' element={(abilities.length && skills.length) ? <AbilitySkill /> : <Loading />} />
+          <Route path='/abilities/:id' element={abilities.length ? <Ability abilities={abilities} /> : <Loading />} />
+          <Route path='/skills/:id' element={skills.length ? <Skill skills={skills} /> : <Loading />} />
+          <Route path='/races-and-classes' element={(races.length && classes.length) ? <RaceClass /> : <Loading />} />
+          <Route path='/races/:id' element={races.length ? <Race /> : <Loading />} />
+          <Route path='/classes/:id' element={classes.length ? <Class /> : <Loading />} />
         </Routes>
       </section>
     </div>
