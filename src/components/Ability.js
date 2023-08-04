@@ -1,14 +1,7 @@
 import { NavLink, useParams  } from 'react-router-dom';
 import { abilities } from '../mockData'
 
-const Ability = () => {
-  // instead of useParams, access the "name" key of the incoming object for Skill and "full_name" for Ability Score - already capitalized
-  const name = useParams().id;
-  // name = 'charisma'
-  const index = name.slice(0, 3)
-  // index = 'cha'
-  const ability = abilities.find(ability => ability.index === index);
-
+const Ability = ({ability}) => {
   const descriptions = ability.desc.map(desc => <p>{desc}</p>);
   const relatedSkills = ability.skills.map(skill => <NavLink to={`/skills/${skill.index}`} className='main__related-text main__related-link'>{skill.name}</NavLink>)
 

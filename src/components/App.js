@@ -149,8 +149,23 @@ function App() {
     return () => updateClasses = false;
   }, [])
 
-  const [rule, setRule] = useState('');
-  
+  const [rule, setRule] = useState({});
+  const [ability, setAbility] = useState({});
+  const [skill, setSkill] = useState({});
+  const [race, setRace] = useState({});
+  const [charClass, setCharClass] = useState({});
+
+  const updateRule = (e) => {
+    const currentRule = rules.find(rule => rule.index === e.target.id)
+    setRule(currentRule)
+  }
+
+  const updateAbilityOrSkill = e => {
+    const index = e.target.id;
+    index.length === 3 ? setAbility(abilities.find(ability => ability.index === index)) : setSkill(skills.find(skill => skill.index === index))
+    console.log('ability', ability)
+    console.log('skill', skill)
+  }
 
   return (
     <div className='app'>
@@ -162,11 +177,11 @@ function App() {
         <Nav />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/gameplay-basics' element={<Gameplay rules={rules} setRule={setRule} />} />
+          <Route path='/gameplay-basics' element={<Gameplay updateRule={updateRule} />} />
           <Route path='/gameplay-basics/:id' element={<Rule rule={rule} />} />
-          <Route path='/abilities-and-skills' element={<AbilitySkill />} />
-          <Route path='/abilities/:id' element={<Ability abilities={abilities} />} />
-          <Route path='/skills/:id' element={<Skill skills={skills} />} />
+          <Route path='/abilities-and-skills' element={<AbilitySkill updateAbilityOrSkill={updateAbilityOrSkill} />} />
+          <Route path='/abilities/:id' element={<Ability ability={ability} updateAbilityOrSkill={updateAbilityOrSkill} />} />
+          <Route path='/skills/:id' element={<Skill skill={skill} updateAbilityOrSkill={updateAbilityOrSkill} />} />
           <Route path='/races-and-classes' element={<RaceClass />} />
           <Route path='/races/:id' element={<Race />} />
           <Route path='/classes/:id' element={<Class />} />
