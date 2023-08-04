@@ -1,12 +1,8 @@
-import { NavLink, useParams  } from 'react-router-dom';
-import { abilities, skills } from '../mockData'
+import { NavLink } from 'react-router-dom';
 
-const Skill = () => {
-  // instead of useParams, access the "name" key of the incoming object for Skill and "full_name" for Ability Score - already capitalized
-  const name = useParams().id;
-  const skill = skills.find(skill => skill.index === name);
-  const descriptions = skill.desc.map(desc => <p>{desc}</p>);
-  const relatedAbility = abilities.find(ability => ability.index === skill.ability_score.index).full_name
+const Skill = ({abilities, skill, updateAbilityOrSkill}) => {
+    const descriptions = skill.desc.map(desc => <p>{desc}</p>);
+    const relatedAbility = abilities.find(ability => ability.index === skill.ability_score.index).full_name
 
   return (
     <main>
@@ -14,7 +10,12 @@ const Skill = () => {
       <div className='main__divider'></div>
       <div className='main__related-links'>
         <span className='main__related-text'>Related:</span>
-        <NavLink to={`/abilities/${relatedAbility.toLowerCase()}`} className='main__related-text main__related-link'>{relatedAbility}</NavLink>
+        <NavLink 
+          to={`/abilities/${relatedAbility.toLowerCase()}`} 
+          className='main__related-text main__related-link' 
+          id={`${relatedAbility.toLowerCase()}`}
+          onClick={e => updateAbilityOrSkill(e)}
+        >{relatedAbility}</NavLink>
       </div>
       {descriptions}
     </main>

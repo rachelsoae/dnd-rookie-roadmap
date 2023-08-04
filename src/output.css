@@ -65,18 +65,19 @@ nav .current-tab {
   color: #D90429;
 }
 
-main {
-  width: 80%;
-  height: 100%;
-  padding: 5%;
-  box-sizing: border-box;
-}
-main .main__heading {
+.main__heading {
   color: #D90429;
   font-family: "Caudex", serif;
   letter-spacing: 0.75px;
   font-size: 4rem;
   margin: 0;
+}
+
+main {
+  width: 80%;
+  height: 100%;
+  padding: 5%;
+  box-sizing: border-box;
 }
 main .main__divider {
   height: 1px;
@@ -130,6 +131,7 @@ main .main__related-links {
   display: flex;
   width: 100%;
   align-items: center;
+  flex-wrap: wrap;
   height: 4rem;
   margin: 0.2em;
   background-color: #8D99AE;
@@ -145,6 +147,27 @@ main .main__related-text {
 }
 main .main__related-link:hover {
   text-decoration: underline #EF233C;
+}
+main .main--bold {
+  font-weight: 700;
+}
+main .main__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeCycle 1.5s infinite;
+}
+
+@keyframes fadeCycle {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=output.css.map */
