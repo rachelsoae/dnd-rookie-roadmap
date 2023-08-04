@@ -1,17 +1,20 @@
 import { NavLink, useParams  } from 'react-router-dom';
 import { abilities, races } from '../mockData'
 
-const Race = () => {
-  const name = useParams().id
-  const race = races.find(race => race.index === name);
-
+const Race = ({race, updateAbilityOrSkill}) => {
   const relatedAbilities = race.ability_bonuses.map(currentAbility => {
     let fullAbility = abilities.find(ability => ability.index === currentAbility.ability_score.index)
     return fullAbility.full_name
   })
 
   const abilityLinks =  relatedAbilities.map(relatedAbility => {
-    return <NavLink to={`/abilities/${relatedAbility.toLowerCase()}`} className='main__related-text main__related-link'>{relatedAbility}</NavLink>
+    return (
+      <NavLink 
+        to={`/abilities/${relatedAbility.toLowerCase()}`} 
+        className='main__related-text main__related-link'
+        id={`${relatedAbility.toLowerCase()}`}
+        onClick={e => updateAbilityOrSkill(e)}
+      >{relatedAbility}</NavLink>)
   })
 
   return (

@@ -163,8 +163,11 @@ function App() {
   const updateAbilityOrSkill = e => {
     const index = e.target.id;
     index.length === 3 ? setAbility(abilities.find(ability => ability.index === index)) : setSkill(skills.find(skill => skill.index === index))
-    console.log('ability', ability)
-    console.log('skill', skill)
+  }
+
+  const updateRaceOrClass = e => {
+    const index = e.target.id;
+    e.target.closest('div').classList.includes('races') ? setRace(races.find(race => race.index === index)) : setCharClass(classes.find(c => c.index === index))
   }
 
   return (
@@ -182,9 +185,9 @@ function App() {
           <Route path='/abilities-and-skills' element={<AbilitySkill updateAbilityOrSkill={updateAbilityOrSkill} />} />
           <Route path='/abilities/:id' element={<Ability ability={ability} updateAbilityOrSkill={updateAbilityOrSkill} />} />
           <Route path='/skills/:id' element={<Skill skill={skill} updateAbilityOrSkill={updateAbilityOrSkill} />} />
-          <Route path='/races-and-classes' element={<RaceClass />} />
-          <Route path='/races/:id' element={<Race />} />
-          <Route path='/classes/:id' element={<Class />} />
+          <Route path='/races-and-classes' element={<RaceClass updateRaceOrClass={updateRaceOrClass} />} />
+          <Route path='/races/:id' element={<Race race={race} updateAbilityOrSkill={updateAbilityOrSkill} />} />
+          <Route path='/classes/:id' element={<Class charClass={charClass} updateRule={updateRule} updateAbilityOrSkill={updateAbilityOrSkill}/>} />
         </Routes>
       </section>
     </div>
