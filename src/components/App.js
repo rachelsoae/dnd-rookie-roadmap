@@ -21,6 +21,11 @@ function App() {
   const [skills, setSkills] = useState([]);
   const [races, setRaces] = useState([]);
   const [classes, setClasses] = useState([]);
+  const [rule, setRule] = useState({});
+  const [ability, setAbility] = useState({});
+  const [skill, setSkill] = useState({});
+  const [race, setRace] = useState({});
+  const [charClass, setCharClass] = useState({});
 
   useEffect(() => {
     let updateRules = true;
@@ -124,7 +129,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    let updateClasses;
+    let updateClasses = true;
     const charClass01 = getData('classes/barbarian');
     const charClass02 = getData('classes/bard');
     const charClass03 = getData('classes/cleric');
@@ -149,12 +154,6 @@ function App() {
     return () => updateClasses = false;
   }, [])
 
-  const [rule, setRule] = useState({});
-  const [ability, setAbility] = useState({});
-  const [skill, setSkill] = useState({});
-  const [race, setRace] = useState({});
-  const [charClass, setCharClass] = useState({});
-
   const updateRule = (e) => {
     const currentRule = rules.find(rule => rule.index === e.target.id)
     setRule(currentRule)
@@ -165,9 +164,12 @@ function App() {
     index.length === 3 ? setAbility(abilities.find(ability => ability.index === index)) : setSkill(skills.find(skill => skill.index === index))
   }
 
-  const updateRaceOrClass = e => {
-    const index = e.target.id;
-    e.target.closest('div').classList.includes('races') ? setRace(races.find(race => race.index === index)) : setCharClass(classes.find(c => c.index === index))
+  const updateRace = e => {
+    setRace(races.find(race => race.index === e.target.id))
+  }
+  
+  const updateClass = e => {
+    setCharClass(classes.find(c => c.index === e.target.id))
   }
 
   return (
@@ -184,10 +186,10 @@ function App() {
           <Route path='/gameplay-basics/:id' element={<Rule rule={rule} />} />
           <Route path='/abilities-and-skills' element={<AbilitySkill updateAbilityOrSkill={updateAbilityOrSkill} />} />
           <Route path='/abilities/:id' element={<Ability ability={ability} updateAbilityOrSkill={updateAbilityOrSkill} />} />
-          <Route path='/skills/:id' element={<Skill skill={skill} updateAbilityOrSkill={updateAbilityOrSkill} />} />
-          <Route path='/races-and-classes' element={<RaceClass updateRaceOrClass={updateRaceOrClass} />} />
-          <Route path='/races/:id' element={<Race race={race} updateAbilityOrSkill={updateAbilityOrSkill} />} />
-          <Route path='/classes/:id' element={<Class charClass={charClass} updateRule={updateRule} updateAbilityOrSkill={updateAbilityOrSkill}/>} />
+          <Route path='/skills/:id' element={<Skill abilities={abilities} skill={skill} updateAbilityOrSkill={updateAbilityOrSkill} />} />
+          <Route path='/races-and-classes' element={<RaceClass updateRace={updateRace} updateClass={updateClass} />} />
+          <Route path='/races/:id' element={<Race abilities={abilities} race={race} updateAbilityOrSkill={updateAbilityOrSkill} />} />
+          <Route path='/classes/:id' element={<Class abilities={abilities} charClass={charClass} updateAbilityOrSkill={updateAbilityOrSkill}/>} />
         </Routes>
       </section>
     </div>

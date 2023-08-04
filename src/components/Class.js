@@ -1,13 +1,12 @@
-import { NavLink, useParams  } from 'react-router-dom';
-import { abilities, classes } from '../mockData'
+import { NavLink } from 'react-router-dom';
 
-const Class = ({charClass, updateRule, updateAbilityOrSkill}) => {
+const Class = ({abilities, charClass, updateAbilityOrSkill}) => {
   const savingThrows = charClass.saving_throws.map(savingThrow => {
     let fullAbility = abilities.find(ability => ability.index === savingThrow.index)
     return fullAbility.full_name
   })
 
-  const abilityLinks =  savingThrows.map(savingThrow => {
+  const abilityLinks = savingThrows.map(savingThrow => {
     return (
       <NavLink 
         to={`/abilities/${savingThrow.toLowerCase()}`} 

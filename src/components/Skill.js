@@ -1,7 +1,6 @@
-import { NavLink, useParams  } from 'react-router-dom';
-import { abilities, skills } from '../mockData'
+import { NavLink } from 'react-router-dom';
 
-const Skill = ({skill, updateAbilityOrSkill}) => {
+const Skill = ({abilities, skill, updateAbilityOrSkill}) => {
     const descriptions = skill.desc.map(desc => <p>{desc}</p>);
     const relatedAbility = abilities.find(ability => ability.index === skill.ability_score.index).full_name
 

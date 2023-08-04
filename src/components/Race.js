@@ -1,7 +1,6 @@
-import { NavLink, useParams  } from 'react-router-dom';
-import { abilities, races } from '../mockData'
+import { NavLink } from 'react-router-dom';
 
-const Race = ({race, updateAbilityOrSkill}) => {
+const Race = ({abilities, race, updateAbilityOrSkill}) => {
   const relatedAbilities = race.ability_bonuses.map(currentAbility => {
     let fullAbility = abilities.find(ability => ability.index === currentAbility.ability_score.index)
     return fullAbility.full_name
