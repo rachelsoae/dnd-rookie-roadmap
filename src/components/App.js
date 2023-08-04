@@ -155,21 +155,24 @@ function App() {
   }, [])
 
   const updateRule = (e) => {
-    const currentRule = rules.find(rule => rule.index === e.target.id)
-    setRule(currentRule)
+    setRule(rules.find(rule => rule.index === e.target.id))
+    setTimeout(console.log, 1000, ('rule', rule))
   }
 
-  const updateAbilityOrSkill = e => {
-    const index = e.target.id;
-    index.length === 3 ? setAbility(abilities.find(ability => ability.index === index)) : setSkill(skills.find(skill => skill.index === index))
+  const updateAbility = e => {
+    setAbility(abilities.find(ability => ability.index === e.target.id))
+  }
+
+  const updateSkill = e => {
+    setSkill(skills.find(skill => skill.index === e.target.id))
   }
 
   const updateRace = e => {
-    setRace(races.find(race => race.index === e.target.id))
+    setRace(() => races.find(race => race.index === e.target.id))
   }
   
   const updateClass = e => {
-    setCharClass(classes.find(c => c.index === e.target.id))
+    setCharClass(() => classes.find(c => c.index === e.target.id))
   }
 
   return (
@@ -184,12 +187,12 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/gameplay-basics' element={<Gameplay updateRule={updateRule} />} />
           <Route path='/gameplay-basics/:id' element={<Rule rule={rule} />} />
-          <Route path='/abilities-and-skills' element={<AbilitySkill updateAbilityOrSkill={updateAbilityOrSkill} />} />
-          <Route path='/abilities/:id' element={<Ability ability={ability} updateAbilityOrSkill={updateAbilityOrSkill} />} />
-          <Route path='/skills/:id' element={<Skill abilities={abilities} skill={skill} updateAbilityOrSkill={updateAbilityOrSkill} />} />
+          <Route path='/abilities-and-skills' element={<AbilitySkill updateAbility={updateAbility} updateSkill={updateSkill} />} />
+          <Route path='/abilities/:id' element={<Ability ability={ability} updateSkill={updateSkill} />} />
+          <Route path='/skills/:id' element={<Skill abilities={abilities} skill={skill} updateAbility={updateAbility} />} />
           <Route path='/races-and-classes' element={<RaceClass updateRace={updateRace} updateClass={updateClass} />} />
-          <Route path='/races/:id' element={<Race abilities={abilities} race={race} updateAbilityOrSkill={updateAbilityOrSkill} />} />
-          <Route path='/classes/:id' element={<Class abilities={abilities} charClass={charClass} updateAbilityOrSkill={updateAbilityOrSkill}/>} />
+          <Route path='/races/:id' element={<Race abilities={abilities} race={race} updateAbility={updateAbility} />} />
+          <Route path='/classes/:id' element={<Class abilities={abilities} charClass={charClass} updateAbility={updateAbility}/>} />
         </Routes>
       </section>
     </div>

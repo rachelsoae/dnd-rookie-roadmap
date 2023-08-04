@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
-const Skill = ({abilities, skill, updateAbilityOrSkill}) => {
+const Skill = ({abilities, skill, updateAbility}) => {
+    setTimeout(console.log, 1000, ('skill', skill))
     const descriptions = skill.desc.map(desc => <p>{desc}</p>);
     const relatedAbility = abilities.find(ability => ability.index === skill.ability_score.index).full_name
 
@@ -14,7 +15,7 @@ const Skill = ({abilities, skill, updateAbilityOrSkill}) => {
           to={`/abilities/${relatedAbility.toLowerCase()}`} 
           className='main__related-text main__related-link' 
           id={`${relatedAbility.toLowerCase()}`}
-          onClick={e => updateAbilityOrSkill(e)}
+          onClick={e => updateAbility(e)}
         >{relatedAbility}</NavLink>
       </div>
       {descriptions}

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-const Race = ({abilities, race, updateAbilityOrSkill}) => {
+const Race = ({abilities, race, updateAbility}) => {
   const relatedAbilities = race.ability_bonuses.map(currentAbility => {
     let fullAbility = abilities.find(ability => ability.index === currentAbility.ability_score.index)
     return fullAbility.full_name
@@ -12,7 +12,7 @@ const Race = ({abilities, race, updateAbilityOrSkill}) => {
         to={`/abilities/${relatedAbility.toLowerCase()}`} 
         className='main__related-text main__related-link'
         id={`${relatedAbility.toLowerCase()}`}
-        onClick={e => updateAbilityOrSkill(e)}
+        onClick={e => updateAbility(e)}
       >{relatedAbility}</NavLink>)
   })
 
