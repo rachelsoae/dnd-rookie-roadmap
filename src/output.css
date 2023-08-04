@@ -65,18 +65,19 @@ nav .current-tab {
   color: #D90429;
 }
 
-main {
-  width: 80%;
-  height: 100%;
-  padding: 5%;
-  box-sizing: border-box;
-}
-main .main__heading {
+.main__heading {
   color: #D90429;
   font-family: "Caudex", serif;
   letter-spacing: 0.75px;
   font-size: 4rem;
   margin: 0;
+}
+
+main {
+  width: 80%;
+  height: 100%;
+  padding: 5%;
+  box-sizing: border-box;
 }
 main .main__divider {
   height: 1px;
@@ -150,8 +151,7 @@ main .main__related-link:hover {
 main .main--bold {
   font-weight: 700;
 }
-
-.loading {
+main .main__loading {
   display: flex;
   align-items: center;
   justify-content: center;

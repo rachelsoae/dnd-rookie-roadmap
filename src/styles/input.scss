@@ -85,18 +85,20 @@ nav {
   }
 }
 
+.main__heading {
+  color: $dark-red;
+  @include header-font;
+  font-size: 4rem;
+  margin: 0;
+}
+
 main {
   width: 80%;
   height: 100%;
   padding: 5%;
   box-sizing: border-box;
 
-  .main__heading {
-    color: $dark-red;
-    @include header-font;
-    font-size: 4rem;
-    margin: 0;
-  }
+  
 
   .main__divider {
     height: 1px;
@@ -183,14 +185,16 @@ main {
     font-weight: 700;
   }
 
+  .main__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeCycle 1.5s infinite;
+  }
+
 }
 
-.loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fadeCycle 1.5s infinite;
-}
+
 
 @keyframes fadeCycle {
   from {
