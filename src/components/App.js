@@ -11,6 +11,7 @@ import Skill from './Skill';
 import RaceClass from './RaceClass';
 import Race from './Race';
 import Class from './Class';
+import Glossary from './Glossary';
 import { getData } from '../apiCalls';
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -192,6 +193,7 @@ function App() {
           <Route path='/races-and-classes' element={<RaceClass updateRace={updateRace} updateClass={updateClass} />} />
           <Route path='/races/:id' element={<Race abilities={abilities} race={race} />} />
           <Route path='/classes/:id' element={<Class abilities={abilities} charClass={charClass}/>} />
+          <Route path='/glossary' element={<Glossary rules={rules} abilities={abilities} skills={skills} races={races} classes={classes} updateRule={updateRule} updateAbility={updateAbility} updateSkill={updateSkill}/>} updateRace={updateRace} updateClass={updateClass} />
         </Routes>
       </section>
     </div>
