@@ -13,22 +13,23 @@ $body-font: 'Sarala', sans-serif;
 }
 
 * {
-  // border: 1px $dark-red solid;
+  border: 1px $dark-red solid;
 }
 
 html {
   font-size: 62.5%;
+  min-height: 100vh;
 }
 
 body {
   background-color: $anti-flash-white;
 }
 
-html,
 body,
 .root,
-.app {
-  height: 100vh;
+.app,
+.app__body {
+  min-height: 100%;
   margin: 0;
 }
 
@@ -46,17 +47,11 @@ body,
     font-family: $logo-font;
     color: $dark-red;
     margin: 0 1em;
-    width: 50%;
-    font-size: 4rem;
+    width: 100%;
+    font-size: 3rem;
   }
 }
  
-
-.app__body {
-  height: 85%;
-}
-
-
 
 .app__body {
   display: flex;
@@ -67,7 +62,7 @@ nav {
   display: flex;
   flex-direction: column;
   width: 20%;
-  height: 100%;
+  min-height: 100%;
 
   .link {
     @include header-font;
