@@ -10,9 +10,10 @@ import RaceClass from './RaceClass';
 import Race from './Race';
 import Class from './Class';
 import Glossary from './Glossary';
+import Error from './Error';
 import { getData } from '../apiCalls';
 import { useEffect, useState } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 function App() {
   const [rules, setRules] = useState([]);
@@ -25,6 +26,7 @@ function App() {
   const [skill, setSkill] = useState({});
   const [race, setRace] = useState({});
   const [charClass, setCharClass] = useState({});
+  const [error, setError] = useState('');
 
   useEffect(() => {
     let updateRules = true;
@@ -48,7 +50,7 @@ function App() {
         responses.forEach(response => setRules(prevState => [...prevState, response]))
       }
     })
-    .catch(error => alert(error))
+    .catch(error => setError(error.message))
     return () => updateRules = false;
   }, [])
 
@@ -67,7 +69,7 @@ function App() {
         responses.forEach(response => setAbilities((prevState => [...prevState, response])))
       }
    })
-    .catch(error => alert(error))
+    .catch(error => setError(error.message))
 
     return () => updateAbilities = false;
   }, [])
@@ -99,7 +101,7 @@ function App() {
         responses.forEach(response => setSkills(prevState => [...prevState, response]))
       }
     })
-    .catch(error => alert(error))
+    .catch(error => setError(error.message))
 
     return () => updateSkills = false;
   }, [])
@@ -122,7 +124,7 @@ function App() {
         responses.forEach(response => setRaces(prevState => [...prevState, response]))
       }
     })      
-    .catch(error => alert(error))
+    .catch(error => setError(error.message))
 
     return () => updateRaces = false;
   }, [])
@@ -148,7 +150,7 @@ function App() {
         responses.forEach(response => setClasses(prevState => [...prevState, response]))
       }
     })
-    .catch(error => alert(error))
+    .catch(error => setError(error.message))
 
     return () => updateClasses = false;
   }, [])
@@ -172,24 +174,6 @@ function App() {
   const updateClass = e => {
     setCharClass(() => classes.find(c => c.index === e.target.id))
   }
-
-// Attempt to DRY links functions; do not delete until submission
-
-  // const getLinks = (type, setter) => {
-  //   const names = {
-  //     races: ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human', 'Tiefling'],
-  //     classes: ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'],
-  //     abilities: ['Charisma', 'Constitution', 'Dexterity', 'Intelligence', 'Strength', 'Wisdom'],
-  //     skills: ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion']
-  //   }
-
-  //   const links = names[type].map(name => {
-  //     const index = name.toLowerCase();
-  //     const id = index.slice(0, 3)
-  //     return type === 'abilities' ? <NavLink key={`${id}`} to={`/${type}/${index}`} className='main__link' onClick={e => `${setter}`(e)} id={`${id}`}>{`${name}`}</NavLink> : <NavLink key={`${index}`} to={`/${type}/${index}`} className='main__link' onClick={e => setter(e)} id={`${index}`}>{`${name}`}</NavLink>
-  //   })
-  //   return links;
-  // }
 
   const getRulesLinks = (category) => {
     const rulesNames = {
@@ -265,8 +249,10 @@ function App() {
       </header>
       <section className='app__body'>
         <Nav />
+        {error && <Navigate to='/error' />}
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/error' element={<Error />} />
           <Route path='/gameplay-basics' element={<Gameplay getRulesLinks={getRulesLinks} />} />
           <Route path='/abilities-and-skills' element={<AbilitySkill getAbilitiesLinks={getAbilitiesLinks} getSkillsLinks={getSkillsLinks} />} />
           <Route path='/races-and-classes' element={<RaceClass getRacesLinks={getRacesLinks} getClassesLinks={getClassesLinks} />} />
@@ -276,6 +262,7 @@ function App() {
           <Route path='/skills/:id' element={<Skill abilities={abilities} skill={skill} />} />
           <Route path='/races/:id' element={<Race abilities={abilities} race={race} />} />
           <Route path='/classes/:id' element={<Class abilities={abilities} charClass={charClass}/>} />
+          <Route path='*'element={<Error />} />
         </Routes>
       </section>
     </div>
