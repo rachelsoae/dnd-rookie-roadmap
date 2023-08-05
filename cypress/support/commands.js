@@ -65,3 +65,10 @@ Cypress.Commands.add('getAllData', () => {
   cy.getData('charClass11', 'classes/warlock');
   cy.getData('charClass12', 'classes/wizard').as('lastFetch')
 })
+
+Cypress.Commands.add('checkLink', (url,id, name) => {
+  cy.get(`#${id}`).click()
+  cy.url().should('eq', `http://localhost:3000/${url}/${id}`)
+  cy.get('h2').contains(`${name}`)
+  cy.go('back')
+})
