@@ -20,6 +20,7 @@ const Glossary = ({getRulesLinks, getAbilitiesLinks, getSkillsLinks, getRacesLin
     <div className='main__divider'></div>
     <div className='main__rules'>
       <section className='main__rule-section'>
+        <h3 className='main__subheading'>A-Z</h3>
         <div className='main__links'>
         {getAllLinks()}
         </div>

@@ -1,5 +1,4 @@
 import '../output.css';
-import '../search.png';
 import Form from './Form';
 import Nav from './Nav';
 import Home from './Home';

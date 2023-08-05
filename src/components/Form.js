@@ -1,16 +1,15 @@
+import search from '../search.png';
+
 const Form = () => {
   return (
     <form className='search-bar'>
-    <label htmlFor='search'>
+    <label htmlFor='search' className=''>Search</label>
       <input
         type='text'
         name='search'
-        placeholder='search'
+        placeholder="example: 'Wisdom'"
       />
-    </label>
-    <img
-      src='../search.png'
-    />
+      <button>Go!</button>
   </form>
   )
 }

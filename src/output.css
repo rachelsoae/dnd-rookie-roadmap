@@ -24,17 +24,51 @@ body,
   z-index: 1;
   position: relative;
 }
-
-.app__body {
-  height: 85%;
-}
-
-h1 {
+.app__header h1 {
   font-family: "Cinzel Decorative", cursive;
   color: #D90429;
   margin: 0 1em;
-  width: 60%;
+  width: 50%;
   font-size: 4rem;
+}
+.app__header form {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+.app__header input,
+.app__header button {
+  height: 3rem;
+  padding: 0 0.5em;
+  border-radius: 2px;
+  border: none;
+}
+.app__header input[type=text] {
+  width: 40%;
+  margin: 0.5em;
+  font-family: "Sarala", sans-serif;
+}
+.app__header button {
+  width: 15%;
+  margin: 0;
+  padding: 0;
+  background-color: #8D99AE;
+  cursor: pointer;
+}
+.app__header label,
+.app__header button {
+  font-size: 2rem;
+  font-family: "Caudex", serif;
+  letter-spacing: 0.75px;
+  color: #EDF2F4;
+}
+.app__header button:hover {
+  background-color: #EDF2F4;
+  color: #EF233C;
+}
+
+.app__body {
+  height: 85%;
 }
 
 .app__body {
@@ -125,27 +159,6 @@ main .main__link {
   text-decoration: underline;
 }
 main .main__link:hover {
-  text-decoration: underline #EF233C;
-}
-main .main__related-links {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 4rem;
-  margin: 0.2em;
-  background-color: #8D99AE;
-  border-radius: 4px;
-  padding-left: 1em;
-}
-main .main__related-text {
-  font-family: "Sarala", sans-serif;
-  color: #EDF2F4;
-  font-size: 1.75rem;
-  margin: 0 0.3em;
-  text-decoration: none;
-}
-main .main__related-link:hover {
   text-decoration: underline #EF233C;
 }
 main .main--bold {
