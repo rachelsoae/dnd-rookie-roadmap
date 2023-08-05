@@ -1,5 +1,4 @@
 import '../output.css';
-import Form from './Form';
 import Nav from './Nav';
 import Home from './Home';
 import Gameplay from './Gameplay';
@@ -13,7 +12,7 @@ import Class from './Class';
 import Glossary from './Glossary';
 import { getData } from '../apiCalls';
 import { useEffect, useState } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 function App() {
   const [rules, setRules] = useState([]);
@@ -241,11 +240,26 @@ function App() {
     return classesLinks;
   }
 
+  const getAllLinks = () => {
+    const a = getRulesLinks('spellcasting');
+    const b = getRulesLinks('adventuring');
+    const c = getRulesLinks('combat');
+    const d = getRulesLinks('using ability scores');
+    const e = getRacesLinks();
+    const f = getClassesLinks();
+    const g = getAbilitiesLinks();
+    const h = getSkillsLinks();
+
+    const allLinks = a.concat(b, c, d, e, f, g, h)
+    const alphabetizedLinks = allLinks.sort((a, b) => a.key.localeCompare(b.key))
+    return alphabetizedLinks;
+  }
+
+
   return (
     <div className='app'>
       <header className='app__header'>
         <h1>D&D: The Rookie's Roadmap</h1>
-        <Form />
       </header>
       <section className='app__body'>
         <Nav />
@@ -254,7 +268,7 @@ function App() {
           <Route path='/gameplay-basics' element={<Gameplay getRulesLinks={getRulesLinks} />} />
           <Route path='/abilities-and-skills' element={<AbilitySkill getAbilitiesLinks={getAbilitiesLinks} getSkillsLinks={getSkillsLinks} />} />
           <Route path='/races-and-classes' element={<RaceClass getRacesLinks={getRacesLinks} getClassesLinks={getClassesLinks} />} />
-          <Route path='/glossary' element={<Glossary getRulesLinks={getRulesLinks} getAbilitiesLinks={getAbilitiesLinks} getSkillsLinks={getSkillsLinks} getRacesLinks={getRacesLinks} getClassesLinks={getClassesLinks} />} />
+          <Route path='/glossary' element={<Glossary getAllLinks={getAllLinks} />} />
           <Route path='/gameplay-basics/:id' element={<Rule rule={rule} />} />
           <Route path='/abilities/:id' element={<Ability ability={ability} />} />
           <Route path='/skills/:id' element={<Skill abilities={abilities} skill={skill} />} />

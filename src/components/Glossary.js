@@ -1,28 +1,36 @@
-const Glossary = ({getRulesLinks, getAbilitiesLinks, getSkillsLinks, getRacesLinks, getClassesLinks}) => {
-  const getAllLinks = () => {
-    const a = getRulesLinks('spellcasting');
-    const b = getRulesLinks('adventuring');
-    const c = getRulesLinks('combat');
-    const d = getRulesLinks('using ability scores');
-    const e = getRacesLinks();
-    const f = getClassesLinks();
-    const g = getAbilitiesLinks();
-    const h = getSkillsLinks();
+import { useState } from 'react';
 
-    const allLinks = a.concat(b, c, d, e, f, g, h)
-    const alphabetizedLinks = allLinks.sort((a, b) => a.key.localeCompare(b.key))
-    return alphabetizedLinks;
+const Glossary = ({getAllLinks}) => {
+  const [searchTerm, setSearchTerm] = useState(''); 
+
+  const handleChange = (e) => {
+    const lowercase = e.target.value.toLowerCase();
+    setSearchTerm(lowercase)
+  }
+
+  const filterLinks = () => {
+    const filtered = getAllLinks().filter(link => link.props.children.toLowerCase().includes(searchTerm))
+    return filtered;
   }
   
   return (
     <main>
-    <h2 className='main__heading'>Glossary</h2>
+    <h2 className='main__heading'>Glossary / Search</h2>
     <div className='main__divider'></div>
     <div className='main__rules'>
-      <section className='main__rule-section'>
+      <section className='main__rule-section main__glossary'>
+        <div className='main__search'>
+          <label htmlFor='search' className=''>Search</label>
+          <input
+            type='text'
+            name='search'
+            placeholder="example: 'Wisdom'"
+            onChange={handleChange}
+          />
+        </div>
         <h3 className='main__subheading'>A-Z</h3>
         <div className='main__links'>
-        {getAllLinks()}
+        {searchTerm ? filterLinks() : getAllLinks()}
         </div>
       </section>
     </div>

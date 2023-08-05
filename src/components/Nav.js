@@ -7,7 +7,7 @@ const Nav = () => {
       <NavLink to='/gameplay-basics' className='link'>Gameplay Basics</NavLink>
       <NavLink to='/abilities-and-skills' className='link'>Abilities & Skills</NavLink>
       <NavLink to='/races-and-classes' className='link'>Races & Classes</NavLink>
-      <NavLink to='/glossary' className='link'>Glossary</NavLink>
+      <NavLink to='/glossary' className='link'>Glossary / Search</NavLink>
       <NavLink className='link'>Resources</NavLink>
     </nav>
   )

@@ -49,46 +49,6 @@ body,
     width: 50%;
     font-size: 4rem;
   }
-
-  form {
-    display: flex;
-    align-items: center;
-    width: 40%;
-  }
-
-  input,
-  button {
-    height: 3rem;
-    padding: 0 0.5em;
-    border-radius: 2px;
-    border: none;
-  }
-
-  input[type='text'] {
-    width: 40%;
-    margin: 0.5em;
-    font-family: $body-font;
-  }
-
-  button {
-    width: 15%;
-    margin: 0;
-    padding: 0;
-    background-color: $accent-gray;
-    cursor: pointer;
-  }
-
-  label,
-  button {
-    font-size: 2rem;
-    @include header-font;
-    color: $anti-flash-white;
-  }
-
-  button:hover {
-    background-color: $anti-flash-white;
-    color: $bright-red;
-  }
 }
  
 
@@ -211,6 +171,36 @@ main {
     animation: fadeCycle 1.5s infinite;
   }
 
+  .main__glossary {
+    width: 80%;
+  }
+
+  .main__search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  input {
+    font-family: $body-font;
+    font-size: 1.5rem;
+    width: 50%;
+    height: 3.5rem;
+    margin: 0.5em;
+    padding: 0 0.5em;
+    border-radius: 2px;
+    border: 1px solid $light-gray;
+  }
+
+  input:hover {
+    border: 1px solid $bright-red;
+  }
+
+  label {
+    font-size: 2.2rem;
+    @include header-font;
+    color: $space-cadet;
+  }
 }
 
 
