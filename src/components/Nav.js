@@ -3,12 +3,14 @@ import { NavLink } from 'react-router-dom';
 const Nav = () => {
   return (
     <nav>
-      <NavLink to='/' className='link current-tab'>Home</NavLink>
-      <NavLink to='/gameplay-basics' className='link'>Gameplay Basics</NavLink>
-      <NavLink to='/abilities-and-skills' className='link'>Abilities & Skills</NavLink>
-      <NavLink to='/races-and-classes' className='link'>Races & Classes</NavLink>
-      <NavLink to='/glossary' className='link'>Glossary / Search</NavLink>
-      <NavLink className='link'>Resources</NavLink>
+      <div className='nav__container'>
+        <NavLink to='/' className='nav__link'>Home</NavLink>
+        <NavLink to='/gameplay-basics' className='nav__link'>Gameplay Basics</NavLink>
+        <NavLink to='/abilities-and-skills' className='nav__link'>Abilities & Skills</NavLink>
+        <NavLink to='/races-and-classes' className='nav__link'>Races & Classes</NavLink>
+        <NavLink to='/glossary' className='nav__link'>Glossary & Search</NavLink>
+        <NavLink className='nav__link'>Resources</NavLink>
+      </div>
     </nav>
   )
 }

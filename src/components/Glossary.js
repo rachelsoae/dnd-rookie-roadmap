@@ -18,8 +18,8 @@ const Glossary = ({getAllLinks}) => {
     <main>
     <h2 className='main__heading'>Glossary / Search</h2>
     <div className='main__divider'></div>
-    <div className='main__rules'>
-      <section className='main__rule-section main__glossary'>
+    <div className='main__content'>
+      <section className='main__section main__glossary'>
         <div className='main__search'>
           <label htmlFor='search' className=''>Search</label>
           <input
@@ -31,7 +31,7 @@ const Glossary = ({getAllLinks}) => {
         </div>
         <h3 className='main__subheading'>A-Z</h3>
         <div className='main__links'>
-        {searchTerm ? filterLinks() : getAllLinks()}
+          {searchTerm ? filterLinks() : getAllLinks()}
         </div>
       </section>
     </div>
