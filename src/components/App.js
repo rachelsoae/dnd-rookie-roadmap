@@ -218,7 +218,7 @@ function App() {
   const getSkillsLinks = () => {
     const skillsNames = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion'];
     const skillsLinks = skillsNames.map(name => {
-      const index = name.toLowerCase();
+      const index = name.toLowerCase().split(' ').join('-')
       return <NavLink key={`${index}`} to={`/skills/${index}`} className='main__link' onClick={e => updateSkill(e)} id={`${index}`}>{`${name}`}</NavLink>
     })
     return skillsLinks;
