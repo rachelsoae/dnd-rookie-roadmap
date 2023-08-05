@@ -10,6 +10,7 @@ import RaceClass from './RaceClass';
 import Race from './Race';
 import Class from './Class';
 import Glossary from './Glossary';
+import Resources from './Resources';
 import Error from './Error';
 import { getData } from '../apiCalls';
 import { useEffect, useState } from 'react';
@@ -257,6 +258,7 @@ function App() {
           <Route path='/abilities-and-skills' element={<AbilitySkill getAbilitiesLinks={getAbilitiesLinks} getSkillsLinks={getSkillsLinks} />} />
           <Route path='/races-and-classes' element={<RaceClass getRacesLinks={getRacesLinks} getClassesLinks={getClassesLinks} />} />
           <Route path='/glossary' element={<Glossary getAllLinks={getAllLinks} />} />
+          <Route path='/resources' element={<Resources />} />
           <Route path='/gameplay-basics/:id' element={<Rule rule={rule} />} />
           <Route path='/abilities/:id' element={<Ability ability={ability} />} />
           <Route path='/skills/:id' element={<Skill abilities={abilities} skill={skill} />} />
