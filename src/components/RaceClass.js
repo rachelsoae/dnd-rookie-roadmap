@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const RaceClass = ({ updateRace, updateClass }) => {
   return (
@@ -43,3 +44,8 @@ const RaceClass = ({ updateRace, updateClass }) => {
 }
 
 export default RaceClass;
+
+RaceClass.propTypes = {
+  updateRace: PropTypes.func.isRequired, 
+  updateClass: PropTypes.func.isRequired
+}
