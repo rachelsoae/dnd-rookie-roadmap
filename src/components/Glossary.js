@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Glossary = ({getAllLinks}) => {
   const [searchTerm, setSearchTerm] = useState(''); 
@@ -39,4 +40,8 @@ const Glossary = ({getAllLinks}) => {
 }
 
 export default Glossary;
+
+Glossary.propTypes = {
+  getAllLinks: PropTypes.func.isRequired
+}
 
