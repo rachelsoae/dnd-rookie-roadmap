@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const AbilitySkill = ({ updateAbility, updateSkill }) => {  
   return (
@@ -46,3 +47,8 @@ const AbilitySkill = ({ updateAbility, updateSkill }) => {
 }
 
 export default AbilitySkill;
+
+AbilitySkill.propTypes = {
+  updateAbility: PropTypes.func.isRequired, 
+  updateSkill: PropTypes.func.isRequired
+}
