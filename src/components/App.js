@@ -14,7 +14,7 @@ import Class from './Class';
 import Glossary from './Glossary';
 import { getData } from '../apiCalls';
 import { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 
 function App() {
   const [rules, setRules] = useState([]);
@@ -175,6 +175,58 @@ function App() {
     setCharClass(() => classes.find(c => c.index === e.target.id))
   }
 
+  const getRacesLinks = () => {
+    const racesNames = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human', 'Tiefling'];
+    const racesLinks = racesNames.map(name => {
+      const index = name.toLowerCase();
+      return <NavLink key={`${index}`} to={`/races/${index}`} className='main__link' onClick={e => updateRace(e)} id={`${index}`}>{`${name}`}</NavLink>
+    })
+    return racesLinks;
+  }
+  
+  const getClassesLinks = () => {
+    const classesNames = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'];
+    const classesLinks = classesNames.map(name => {
+      const index = name.toLowerCase();
+      return <NavLink key={`${index}`} to={`/classes/${index}`} className='main__link' onClick={e => updateClass(e)} id={`${index}`}>{`${name}`}</NavLink>
+    })
+    return classesLinks;
+  }
+
+  const getAbilitiesLinks = () => {
+    const abilitiesNames = ['Charisma', 'Constitution', 'Dexterity', 'Intelligence', 'Strength', 'Wisdom'];
+    const abilitiesLinks = abilitiesNames.map(name => {
+      const index = name.toLowerCase();
+      const id = index.slice(0, 3)
+      return <NavLink key={`${id}`} to={`/abilities/${index}`} className='main__link' onClick={e => updateAbility(e)} id={`${id}`}>{`${name}`}</NavLink>
+    })
+    return abilitiesLinks;
+  }
+
+  const getSkillsLinks = () => {
+    const skillsNames = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion'];
+    const skillsLinks = skillsNames.map(name => {
+      const index = name.toLowerCase();
+      return <NavLink key={`${index}`} to={`/skills/${index}`} className='main__link' onClick={e => updateSkill(e)} id={`${index}`}>{`${name}`}</NavLink>
+    })
+    return skillsLinks;
+  }
+
+  const getRulesLinks = (category) => {
+    const rulesNames = {
+      spellcasting: ['What is a spell', 'Casting a spell'],
+      adventuring: ['Time', 'Resting'],
+      combat: ['The Order of Combat', 'Movement & Position', 'Actions in Combat', 'Making an Attack', 'Damage and Healing'], 
+      'using ability scores': ['Ability Checks', 'Using Each Ability', 'Proficiency Bonus', 'Saving Throws']
+    }
+    
+    return rulesNames[category].map(name => {
+      const index = name.toLowerCase().split(' ').join('-');
+      return <NavLink key={`${index}`} to={`/gameplay-basics/${index}`} id={`${index}`} className='main__link' onClick={(e) => updateRule(e)}>{`${name}`}</NavLink>
+    })
+  }
+
+
   return (
     <div className='app'>
       <header className='app__header'>
@@ -185,12 +237,12 @@ function App() {
         <Nav />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/gameplay-basics' element={<Gameplay updateRule={updateRule} />} />
+          <Route path='/gameplay-basics' element={<Gameplay getRulesLinks={getRulesLinks} />} />
           <Route path='/gameplay-basics/:id' element={<Rule rule={rule} />} />
-          <Route path='/abilities-and-skills' element={<AbilitySkill updateAbility={updateAbility} updateSkill={updateSkill} />} />
+          <Route path='/abilities-and-skills' element={<AbilitySkill getAbilitiesLinks={getAbilitiesLinks} getSkillsLinks={getSkillsLinks} />} />
           <Route path='/abilities/:id' element={<Ability ability={ability} />} />
           <Route path='/skills/:id' element={<Skill abilities={abilities} skill={skill} />} />
-          <Route path='/races-and-classes' element={<RaceClass updateRace={updateRace} updateClass={updateClass} />} />
+          <Route path='/races-and-classes' element={<RaceClass getRacesLinks={getRacesLinks} getClassesLinks={getClassesLinks} />} />
           <Route path='/races/:id' element={<Race abilities={abilities} race={race} />} />
           <Route path='/classes/:id' element={<Class abilities={abilities} charClass={charClass}/>} />
           <Route path='/glossary' element={<Glossary rules={rules} abilities={abilities} skills={skills} races={races} classes={classes} updateRule={updateRule} updateAbility={updateAbility} updateSkill={updateSkill}/>} updateRace={updateRace} updateClass={updateClass} />

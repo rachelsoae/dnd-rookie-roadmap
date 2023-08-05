@@ -1,21 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Gameplay = ({ updateRule}) => { 
-  const rulesNames = {
-    spellcasting: ['What is a spell', 'Casting a spell'],
-    adventuring: ['Time', 'Resting'],
-    combat: ['The Order of Combat', 'Movement & Position', 'Actions in Combat', 'Making an Attack', 'Damage and Healing'], 
-    'using ability scores': ['Ability Checks', 'Using Each Ability', 'Proficiency Bonus', 'Saving Throws']
-  }
-  
-  const getRulesLinks = (category) => {
-    return rulesNames[category].map(name => {
-      const index = name.toLowerCase().split(' ').join('-');
-      return <NavLink key={`${index}`} to={`/gameplay-basics/${index}`} id={`${index}`} className='main__link' onClick={(e) => updateRule(e)}>{`${name}`}</NavLink>
-    })
-  }
-
+const Gameplay = ({ getRulesLinks }) => { 
   return (
     <main>
       <h2 className='main__heading'>Gameplay Basics</h2>
@@ -53,5 +39,5 @@ const Gameplay = ({ updateRule}) => {
 export default Gameplay;
 
 Gameplay.propTypes = {
-  updateRule: PropTypes.func.isRequired
+  getRulesLinks: PropTypes.func.isRequired
 }

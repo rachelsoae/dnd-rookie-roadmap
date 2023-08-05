@@ -1,19 +1,6 @@
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const RaceClass = ({ updateRace, updateClass }) => {
-  const racesNames = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human', 'Tiefling'];
-  const racesLinks = racesNames.map(name => {
-    const index = name.toLowerCase();
-    return <NavLink to={`/races/${index}`} className='main__link' onClick={e => updateRace(e)} id={`${index}`}>{`${name}`}</NavLink>
-  })
-
-  const classesNames = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'];
-  const classesLinks = classesNames.map(name => {
-    const index = name.toLowerCase();
-    return <NavLink to={`/classes/${index}`} className='main__link' onClick={e => updateClass(e)} id={`${index}`}>{`${name}`}</NavLink>
-  })
-  
+const RaceClass = ({getRacesLinks, getClassesLinks }) => {  
   return (
     <main>
       <h2 className='main__heading'>Races & Classes</h2>
@@ -22,13 +9,13 @@ const RaceClass = ({ updateRace, updateClass }) => {
         <section className='main__rule-section'>
           <h3 className='main__subheading'>Races</h3>
           <div className='main__links'>
-            {racesLinks}
+            {getRacesLinks()}
           </div>
         </section>
         <section className='main__rule-section'>
           <h3 className='main__subheading'>Classes</h3>
           <div className='main__links'>
-            {classesLinks}
+            {getClassesLinks()}
           </div>
         </section>
       </div>
@@ -39,6 +26,6 @@ const RaceClass = ({ updateRace, updateClass }) => {
 export default RaceClass;
 
 RaceClass.propTypes = {
-  updateRace: PropTypes.func.isRequired, 
-  updateClass: PropTypes.func.isRequired
+  getRacesLinks: PropTypes.func.isRequired, 
+  getClassesLinks: PropTypes.func.isRequired
 }
