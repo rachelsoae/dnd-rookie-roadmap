@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 const RaceClass = ({ updateRace, updateClass }) => {
   const racesNames = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human', 'Tiefling'];
-  const racesLinks = racesNames.forEach(name => {
+  const racesLinks = racesNames.map(name => {
     const index = name.toLowerCase();
     return <NavLink to={`/races/${index}`} className='main__link' onClick={e => updateRace(e)} id={`${index}`}>{`${name}`}</NavLink>
   })
 
   const classesNames = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'];
-  const classesLinks = classesNames.forEach(name => {
+  const classesLinks = classesNames.map(name => {
     const index = name.toLowerCase();
     return <NavLink to={`/classes/${index}`} className='main__link' onClick={e => updateClass(e)} id={`${index}`}>{`${name}`}</NavLink>
   })

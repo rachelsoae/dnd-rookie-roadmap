@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const AbilitySkill = ({ updateAbility, updateSkill }) => {  
   const abilitiesNames = ['Charisma', 'Constitution', 'Dexterity', 'Intelligence', 'Strength', 'Wisdom'];
-  const abilitiesLinks = abilitiesNames.forEach(name => {
+  const abilitiesLinks = abilitiesNames.map(name => {
     const index = name.toLowerCase();
     const id = index.slice(0, 3)
     return <NavLink to={`/abilities/${index}`} className='main__link' onClick={e => updateAbility(e)} id={`${id}`}>{`${name}`}</NavLink>
@@ -11,7 +11,7 @@ const AbilitySkill = ({ updateAbility, updateSkill }) => {
 
   const skillsNames = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion'];
 
-  const skillsLinks = skillsNames.forEach(name => {
+  const skillsLinks = skillsNames.map(name => {
     const index = name.toLowerCase();
     <NavLink to={`/skills/${index}`} className='main__link' onClick={e => updateSkill(e)} id={`${index}`}>{`${name}`}</NavLink>
   })
