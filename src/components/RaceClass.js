@@ -2,6 +2,18 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const RaceClass = ({ updateRace, updateClass }) => {
+  const racesNames = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human', 'Tiefling'];
+  const racesLinks = racesNames.forEach(name => {
+    const index = name.toLowerCase();
+    return <NavLink to={`/races/${index}`} className='main__link' onClick={e => updateRace(e)} id={`${index}`}>{`${name}`}</NavLink>
+  })
+
+  const classesNames = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'];
+  const classesLinks = classesNames.forEach(name => {
+    const index = name.toLowerCase();
+    return <NavLink to={`/classes/${index}`} className='main__link' onClick={e => updateClass(e)} id={`${index}`}>{`${name}`}</NavLink>
+  })
+  
   return (
     <main>
       <h2 className='main__heading'>Races & Classes</h2>
@@ -10,32 +22,13 @@ const RaceClass = ({ updateRace, updateClass }) => {
         <section className='main__rule-section'>
           <h3 className='main__subheading'>Races</h3>
           <div className='main__links'>
-            <NavLink to='/races/dragonborn' className='main__link' onClick={e => updateRace(e)} id='dragonborn'>Dragonborn</NavLink>
-            <NavLink to='/races/dwarf' className='main__link' onClick={e => updateRace(e)} id='dwarf'>Dwarf</NavLink>
-            <NavLink to='/races/elf' className='main__link' onClick={e => updateRace(e)} id='elf'>Elf</NavLink>
-            <NavLink to='/races/gnome' className='main__link' onClick={e => updateRace(e)} id='gnome'>Gnome</NavLink>
-            <NavLink to='/races/half-elf' className='main__link' onClick={e => updateRace(e)} id='half-elf'>Half-Elf</NavLink>
-            <NavLink to='/races/half-orc' className='main__link' onClick={e => updateRace(e)} id='half-orc'>Half-Orc</NavLink>
-            <NavLink to='/races/halfling' className='main__link' onClick={e => updateRace(e)} id='halfling'>Halfling</NavLink>
-            <NavLink to='/races/human' className='main__link' onClick={e => updateRace(e)} id='human'>Human</NavLink>
-            <NavLink to='/races/tiefling' className='main__link' onClick={e => updateRace(e)} id='tiefling'>Tiefling</NavLink>
+            {racesLinks}
           </div>
         </section>
         <section className='main__rule-section'>
           <h3 className='main__subheading'>Classes</h3>
-          <div className='main__links classes'>
-            <NavLink to='/classes/barbarian' className='main__link' onClick={e => updateClass(e)} id='barbarian'>Barbarian</NavLink>
-            <NavLink to='/classes/bard' className='main__link' onClick={e => updateClass(e)} id='bard'>Bard</NavLink>
-            <NavLink to='/classes/cleric' className='main__link' onClick={e => updateClass(e)} id='cleric'>Cleric</NavLink>
-            <NavLink to='/classes/druid' className='main__link' onClick={e => updateClass(e)} id='druid'>Druid</NavLink>
-            <NavLink to='/classes/fighter' className='main__link' onClick={e => updateClass(e)} id='fighter'>Fighter</NavLink>
-            <NavLink to='/classes/monk' className='main__link' onClick={e => updateClass(e)} id='monk'>Monk</NavLink>
-            <NavLink to='/classes/paladin' className='main__link' onClick={e => updateClass(e)} id='paladin'>Paladin</NavLink>
-            <NavLink to='/classes/ranger' className='main__link' onClick={e => updateClass(e)} id='ranger'>Ranger</NavLink>
-            <NavLink to='/classes/rogue' className='main__link' onClick={e => updateClass(e)} id='rogue'>Rogue</NavLink>
-            <NavLink to='/classes/sorcerer' className='main__link' onClick={e => updateClass(e)} id='sorcerer'>Sorcerer</NavLink>
-            <NavLink to='/classes/warlock' className='main__link' onClick={e => updateClass(e)} id='warlock'>Warlock</NavLink>
-            <NavLink to='/classes/wizard' className='main__link' onClick={e => updateClass(e)} id='wizard'>Wizard</NavLink>
+          <div className='main__links'>
+            {classesLinks}
           </div>
         </section>
       </div>
