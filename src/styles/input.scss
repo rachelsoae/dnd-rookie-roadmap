@@ -157,30 +157,6 @@ main {
     text-decoration: underline $bright-red;
   }
 
-  .main__related-links {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    flex-wrap: wrap;
-    height: 4rem;
-    margin: 0.2em;
-    background-color: $accent-gray;
-    border-radius: 4px;
-    padding-left: 1em;
-  }
-
-  .main__related-text {
-    font-family: $body-font;
-    color: $anti-flash-white;
-    font-size: 1.75rem;
-    margin: 0 0.3em;
-    text-decoration: none;
-  }
-
-  .main__related-link:hover {
-    text-decoration: underline $bright-red;
-  }
-
   .main--bold {
     font-weight: 700;
   }
