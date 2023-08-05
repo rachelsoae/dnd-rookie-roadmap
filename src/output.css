@@ -24,17 +24,16 @@ body,
   z-index: 1;
   position: relative;
 }
-
-.app__body {
-  height: 85%;
-}
-
-h1 {
+.app__header h1 {
   font-family: "Cinzel Decorative", cursive;
   color: #D90429;
   margin: 0 1em;
-  width: 60%;
+  width: 50%;
   font-size: 4rem;
+}
+
+.app__body {
+  height: 85%;
 }
 
 .app__body {
@@ -127,27 +126,6 @@ main .main__link {
 main .main__link:hover {
   text-decoration: underline #EF233C;
 }
-main .main__related-links {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 4rem;
-  margin: 0.2em;
-  background-color: #8D99AE;
-  border-radius: 4px;
-  padding-left: 1em;
-}
-main .main__related-text {
-  font-family: "Sarala", sans-serif;
-  color: #EDF2F4;
-  font-size: 1.75rem;
-  margin: 0 0.3em;
-  text-decoration: none;
-}
-main .main__related-link:hover {
-  text-decoration: underline #EF233C;
-}
 main .main--bold {
   font-weight: 700;
 }
@@ -156,6 +134,33 @@ main .main__loading {
   align-items: center;
   justify-content: center;
   animation: fadeCycle 1.5s infinite;
+}
+main .main__glossary {
+  width: 80%;
+}
+main .main__search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+main input {
+  font-family: "Sarala", sans-serif;
+  font-size: 1.5rem;
+  width: 50%;
+  height: 3.5rem;
+  margin: 0.5em;
+  padding: 0 0.5em;
+  border-radius: 2px;
+  border: 1px solid #C4CAD6;
+}
+main input:hover {
+  border: 1px solid #EF233C;
+}
+main label {
+  font-size: 2.2rem;
+  font-family: "Caudex", serif;
+  letter-spacing: 0.75px;
+  color: #2B2D42;
 }
 
 @keyframes fadeCycle {

@@ -41,19 +41,22 @@ body,
   box-shadow: 0px 4px 4px 0px rgb(0, 0, 0, 0.25);
   z-index: 1;
   position: relative;
+
+  h1 {
+    font-family: $logo-font;
+    color: $dark-red;
+    margin: 0 1em;
+    width: 50%;
+    font-size: 4rem;
+  }
 }
+ 
 
 .app__body {
   height: 85%;
 }
 
-h1 {
-  font-family: $logo-font;
-  color: $dark-red;
-  margin: 0 1em;
-  width: 60%;
-  font-size: 4rem;
-}
+
 
 .app__body {
   display: flex;
@@ -168,7 +171,39 @@ main {
     animation: fadeCycle 1.5s infinite;
   }
 
+  .main__glossary {
+    width: 80%;
+  }
+
+  .main__search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  input {
+    font-family: $body-font;
+    font-size: 1.5rem;
+    width: 50%;
+    height: 3.5rem;
+    margin: 0.5em;
+    padding: 0 0.5em;
+    border-radius: 2px;
+    border: 1px solid $light-gray;
+  }
+
+  input:hover {
+    border: 1px solid $bright-red;
+  }
+
+  label {
+    font-size: 2.2rem;
+    @include header-font;
+    color: $space-cadet;
+  }
 }
+
+
 
 
 
