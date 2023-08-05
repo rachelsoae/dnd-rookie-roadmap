@@ -12,7 +12,7 @@ import Class from './Class';
 import Glossary from './Glossary';
 import { getData } from '../apiCalls';
 import { useEffect, useState } from 'react';
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 
 function App() {
   const [rules, setRules] = useState([]);
@@ -172,6 +172,8 @@ function App() {
   const updateClass = e => {
     setCharClass(() => classes.find(c => c.index === e.target.id))
   }
+
+// Attempt to DRY links functions; do not delete until submission
 
   // const getLinks = (type, setter) => {
   //   const names = {
