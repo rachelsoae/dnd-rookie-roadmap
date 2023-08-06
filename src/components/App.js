@@ -180,7 +180,7 @@ function App() {
     const rulesNames = {
       spellcasting: ['What is a spell', 'Casting a spell'],
       adventuring: ['Time', 'Resting'],
-      combat: ['The Order of Combat', 'Movement & Position', 'Actions in Combat', 'Making an Attack', 'Damage and Healing'], 
+      combat: ['The Order of Combat', 'Movement and Position', 'Actions in Combat', 'Making an Attack', 'Damage and Healing'], 
       'using ability scores': ['Ability Checks', 'Using Each Ability', 'Proficiency Bonus', 'Saving Throws']
     }
     
@@ -201,7 +201,7 @@ function App() {
   }
 
   const getSkillsLinks = () => {
-    const skillsNames = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion'];
+    const skillsNames = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion', 'Sleight of Hand', 'Stealth', 'Survival'];
     const skillsLinks = skillsNames.map(name => {
       const index = name.toLowerCase().split(' ').join('-')
       return <NavLink key={`${index}`} to={`/skills/${index}`} className='main__link' onClick={e => updateSkill(e)} id={`${index}`}>{`${name}`}</NavLink>

@@ -11,7 +11,7 @@ const Glossary = ({getAllLinks}) => {
 
   const filterLinks = () => {
     const filtered = getAllLinks().filter(link => link.props.children.toLowerCase().includes(searchTerm))
-    return filtered;
+    return filtered.length ? filtered : <p>Sorry, no matches found.</p>;
   }
   
   return (
