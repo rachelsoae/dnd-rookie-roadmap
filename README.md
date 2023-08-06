@@ -23,9 +23,9 @@ Happy Adventuring!
 
 ## Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-[Screenshot of Gameplay Basics Page]
-[Screenshot of Half-Orc Page]
-[Screenshot of Search]
+<img width="1421" alt="Screenshot 2023-08-05 at 5 24 56 PM" src="https://github.com/rachelsoae/dnd-rookie-roadmap/assets/118572701/2a12ee15-dc9f-4163-9748-9376f2b176b6">
+<img width="1420" alt="Screenshot 2023-08-05 at 5 13 06 PM" src="https://github.com/rachelsoae/dnd-rookie-roadmap/assets/118572701/a8501fba-163f-4f6d-b426-a541bcedeff0">
+<img width="1413" alt="Screenshot 2023-08-05 at 5 13 48 PM" src="https://github.com/rachelsoae/dnd-rookie-roadmap/assets/118572701/af32ee65-bfd9-474b-9338-220f7c36a0d1">
 
 ## Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
@@ -49,7 +49,7 @@ Thanks to [Ben Holden](https://github.com/BenHolden010) for help with code revie
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
 This project has been a fantastic exercise in working with RESTful APIs. [The API I used](https://www.dnd5eapi.co/docs/) was rich with information, but every subpage in the application - every ability, skill, race, class, and rule - is stored at an individual endpoint. This presented the challenge of accomplishing 58 fetch calls on page load and create states of arrays for each category without having timing issues. Needless to say, I learned a lot about useEffect (hint: don't forget your cleanup functions).
 
-I also pushed myself to create a robust Cypress testing suite, utilizing custom commands to dynamically test every single link in the application.
+I pushed myself in many ways on this project. In addition to navigating the huge API, I set up a robust Cypress testing suite, utilizing custom commands to dynamically test every single link in the application, and implemented styling with Sass for the first time.
 
 ## Plans For Future:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
