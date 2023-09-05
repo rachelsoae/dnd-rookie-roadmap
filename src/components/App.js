@@ -13,42 +13,26 @@ import Glossary from './Glossary';
 import Resources from './Resources';
 import Error from './Error';
 import { getData } from '../apiCalls';
-import { useEffect, useState, useReducer } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 function App() {
-  // const [state, dispatch] = useReducer(reducer, {
-  //   rules: [],
-  //   abilities: [],
-  //   skills: [],
-  //   races: [],
-  //   classes: [],
-  //   rule: {},
-  //   ability: {},
-  //   skill: {},
-  //   race: {},
-  //   charClass: {},
-  //   error: ''
-  // })
+  // remove all these repeated fetch calls and states
+  // when a user clicks on a specific page link, route to that page
+  // fetch that specific rule
+    // add a loading page/animation
+  // make the get function more dynamic so it takes two arguments
+  // arg1 = left side of URL
+    // create an object
+    // keys are MY left side URLs
+    // values are API left side URLs
+      // 'rules': 'rule-sections'
+  // arg2 = right side of URL
+      // useParams will give ID
+      // add a conditional with the splice for ability-scores
 
-  // const reducer = (prevState, action) =>  {
-  //   switch(action.type) {
-  //     case 'setData':
-        // when setData is dispatched, 
-        // loop over the rules object and fetch data
-        // promise all
-        // then return this to set state
-        // return {...prevState, action.payload.name: response }
-  //   }
-  // }
-
-  // set rules action object:
-  // action {
-  //   type: 'setData',
-  //   payload: {
-  //     name: 'rules'
-  //   }
-  // }
+  // when data is received, use it to populate the page
+  // generate different components based on location? or just use different processing operations by location.
   
   const [rules, setRules] = useState([]);
   const [abilities, setAbilities] = useState([]);
@@ -61,10 +45,6 @@ function App() {
   const [race, setRace] = useState({});
   const [charClass, setCharClass] = useState({});
   const [error, setError] = useState('');
-
-  // object = {
-  //   'rule-sections': ['what-is-a-spell, casting-a-spell']
-  // }
 
   useEffect(() => {
     let updateRules = true;
@@ -92,8 +72,7 @@ function App() {
     return () => updateRules = false;
   }, [])
 
-  // 'rules': 'rule-sections'
-  // useParams to get right side
+
 
   useEffect(() => {
     let updateAbilities = true;
