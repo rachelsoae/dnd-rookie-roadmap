@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useLocation} from 'react-router-dom'
 
 const Race = ({abilities, race}) => {
   const relatedAbilities = race.ability_bonuses.map(currentAbility => {

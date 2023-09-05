@@ -1,4 +1,4 @@
-import '../output.css';
+import '../styles/output.css';
 import Nav from './Nav';
 import Home from './Home';
 import Gameplay from './Gameplay';
@@ -13,10 +13,43 @@ import Glossary from './Glossary';
 import Resources from './Resources';
 import Error from './Error';
 import { getData } from '../apiCalls';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 function App() {
+  // const [state, dispatch] = useReducer(reducer, {
+  //   rules: [],
+  //   abilities: [],
+  //   skills: [],
+  //   races: [],
+  //   classes: [],
+  //   rule: {},
+  //   ability: {},
+  //   skill: {},
+  //   race: {},
+  //   charClass: {},
+  //   error: ''
+  // })
+
+  // const reducer = (prevState, action) =>  {
+  //   switch(action.type) {
+  //     case 'setData':
+        // when setData is dispatched, 
+        // loop over the rules object and fetch data
+        // promise all
+        // then return this to set state
+        // return {...prevState, action.payload.name: response }
+  //   }
+  // }
+
+  // set rules action object:
+  // action {
+  //   type: 'setData',
+  //   payload: {
+  //     name: 'rules'
+  //   }
+  // }
+  
   const [rules, setRules] = useState([]);
   const [abilities, setAbilities] = useState([]);
   const [skills, setSkills] = useState([]);
@@ -28,6 +61,10 @@ function App() {
   const [race, setRace] = useState({});
   const [charClass, setCharClass] = useState({});
   const [error, setError] = useState('');
+
+  // object = {
+  //   'rule-sections': ['what-is-a-spell, casting-a-spell']
+  // }
 
   useEffect(() => {
     let updateRules = true;
@@ -54,6 +91,9 @@ function App() {
     .catch(error => setError(error.message))
     return () => updateRules = false;
   }, [])
+
+  // 'rules': 'rule-sections'
+  // useParams to get right side
 
   useEffect(() => {
     let updateAbilities = true;

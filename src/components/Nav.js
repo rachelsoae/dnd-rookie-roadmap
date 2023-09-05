@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
+import '../styles/output.css'
 
 const Nav = () => {
   return (
     <nav>
       <div className='nav__container'>
-        <NavLink to='/' className='nav__link'>Home</NavLink>
+        <NavLink to='/' className='nav__link fake-class'>Home</NavLink>
         <NavLink to='/gameplay-basics' className='nav__link'>Gameplay Basics</NavLink>
         <NavLink to='/abilities-and-skills' className='nav__link'>Abilities & Skills</NavLink>
         <NavLink to='/races-and-classes' className='nav__link'>Races & Classes</NavLink>
@@ -14,5 +15,7 @@ const Nav = () => {
     </nav>
   )
 }
+
+// for active links do a.active and then put a background color on it
 
 export default Nav;
