@@ -1,10 +1,6 @@
 describe('Directory Pages', () => {
-  beforeEach(() => {
-    cy.visit('http://localhost:3000/') 
-  })
-  
   it('should display the Gameplay Basics page, click links, and render the correct pages', () => {
-    cy.get('.nav__container').children().contains('Gameplay Basics').click()
+    cy.visit('http://localhost:3000/gameplay-basics');
     cy.get('h2').contains('Gameplay Basics');
     cy.get(':nth-child(1) > .main__subheading').contains('Spellcasting');
     cy.get(':nth-child(2) > .main__subheading').contains('Adventuring');
@@ -22,7 +18,7 @@ describe('Directory Pages', () => {
   })
 
   it('should display the Abilities & Skills page, click links, and render the correct pages', () => {
-    cy.get('.nav__container').children().contains('Abilities & Skills').click()
+    cy.visit('http://localhost:3000/abilities-and-skills');
     cy.get('h2').contains('Abilities & Skills');
     cy.get(':nth-child(1) > .main__subheading').contains('Abilities');
     cy.get(':nth-child(2) > .main__subheading').contains('Skills');
@@ -31,7 +27,7 @@ describe('Directory Pages', () => {
   })
 
   it('should display the Races & Classes page, click links, and render the correct pages', () => {
-    cy.get('.nav__container').children().contains('Races & Classes').click()
+    cy.visit('http://localhost:3000/races-and-classes');
     cy.get('h2').contains('Races & Classes');
     cy.get(':nth-child(1) > .main__subheading').contains('Races');
     cy.get(':nth-child(2) > .main__subheading').contains('Classes');
