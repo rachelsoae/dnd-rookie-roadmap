@@ -8,7 +8,6 @@ import Glossary from './Glossary';
 import Resources from './Resources';
 import Error from './Error';
 import Page from './Page';
-import { getData } from '../apiCalls';
 import { useState } from 'react';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 

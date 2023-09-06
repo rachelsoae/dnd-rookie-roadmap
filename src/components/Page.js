@@ -36,7 +36,6 @@ const Page = ({setError}) => {
   }, [])
 
   const renderPage = (path) => {
-    console.log(path)
     switch(path) {
       case 'gameplay-basics':
         return <Rule page={page} />
