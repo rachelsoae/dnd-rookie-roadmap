@@ -9,25 +9,25 @@ const Gameplay = ({ getLinks }) => {
         <section className='main__section'>
           <h3 className='main__subheading'>Spellcasting</h3>
           <div className='main__links'>
-            {getLinks('rules', 'spellcasting')}
+            {getLinks('gameplay-basics', 'spellcasting')}
           </div>
         </section>
         <section className='main__section'>
           <h3 className='main__subheading'>Adventuring</h3>
           <div className='main__links'>
-            {getLinks('rules', 'adventuring')}
+            {getLinks('gameplay-basics', 'adventuring')}
           </div>
         </section>
         <section className='main__section'>
           <h3 className='main__subheading'>Combat</h3>
           <div className='main__links'>
-            {getLinks('rules', 'combat')}
+            {getLinks('gameplay-basics', 'combat')}
           </div>
         </section>
         <section className='main__section'>
           <h3 className='main__subheading'>Ability Scores</h3>
           <div className='main__links'>
-            {getLinks('rules', 'using ability scores')}
+            {getLinks('gameplay-basics', 'using ability scores')}
           </div>
         </section>
       </div>

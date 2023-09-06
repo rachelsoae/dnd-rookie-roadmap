@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const RaceClass = ({getRacesLinks, getClassesLinks }) => {  
+const RaceClass = ({ getLinks }) => {  
   return (
     <main>
       <h2 className='main__heading'>Races & Classes</h2>
@@ -9,13 +9,13 @@ const RaceClass = ({getRacesLinks, getClassesLinks }) => {
         <section className='main__section'>
           <h3 className='main__subheading'>Races</h3>
           <div className='main__links'>
-            {getRacesLinks()}
+            {getLinks('races')}
           </div>
         </section>
         <section className='main__section'>
           <h3 className='main__subheading'>Classes</h3>
           <div className='main__links'>
-            {getClassesLinks()}
+            {getLinks('classes')}
           </div>
         </section>
       </div>

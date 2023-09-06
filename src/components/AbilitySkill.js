@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
+import { useParams } from 'react'
 
-const AbilitySkill = ({ getAbilitiesLinks, getSkillsLinks }) => {  
+const AbilitySkill = ({ getLinks }) => {  
+
   return (
     <main>
       <h2 className='main__heading'>Abilities & Skills</h2>
@@ -9,13 +11,13 @@ const AbilitySkill = ({ getAbilitiesLinks, getSkillsLinks }) => {
         <section className='main__section'>
           <h3 className='main__subheading'>Abilities</h3>
           <div className='main__links'>
-            {getAbilitiesLinks()}
+            {getLinks('abilities')}
           </div>
         </section>
         <section className='main__section'>
           <h3 className='main__subheading'>Skills</h3>
           <div className='main__links'>
-            {getSkillsLinks()}
+            {getLinks('skills')}
           </div>
         </section>
       </div>
@@ -26,6 +28,5 @@ const AbilitySkill = ({ getAbilitiesLinks, getSkillsLinks }) => {
 export default AbilitySkill;
 
 AbilitySkill.propTypes = {
-  getAbilitiesLinks: PropTypes.func.isRequired, 
-  getSkillsLinks: PropTypes.func.isRequired
+  getLinks: PropTypes.func.isRequired, 
 }
