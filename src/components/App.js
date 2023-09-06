@@ -71,6 +71,23 @@ const App = () => {
   //   return alphabetizedLinks;
   // }
 
+  const getAllLinks = () => {
+    const allLinks = []
+    const addLinks = (directory, category = null) => {
+      const links = getLinks(directory, category)
+      links.forEach(link => allLinks.push(link))
+    }
+    Object.keys(NAMES).forEach(name => {
+      if (name === 'gameplay-basics') {
+        Object.keys(NAMES[name]).forEach(key => addLinks(name, key))
+      } else {
+        addLinks(name)
+      }     
+    })
+    const alphabetizedLinks = allLinks.sort((a, b) => a.key.localeCompare(b.key))
+    return alphabetizedLinks;
+  }
+
 
   return (
     <div className='app'>
@@ -86,8 +103,8 @@ const App = () => {
           <Route path='/gameplay-basics' element={<Gameplay getLinks={getLinks} />} />
           <Route path='/abilities-and-skills' element={<AbilitySkill getLinks={getLinks} />} />
           <Route path='/races-and-classes' element={<RaceClass getLinks={getLinks} />} />
-          {/* <Route path='/glossary' element={<Glossary getAllLinks={getAllLinks} />} /> */}
-          {/* <Route path='/resources' element={<Resources />} /> */}
+          <Route path='/glossary' element={<Glossary getAllLinks={getAllLinks} />} />
+          <Route path='/resources' element={<Resources />} />
           <Route path='/gameplay-basics/:id' element={<Page />} />
           <Route path='/abilities/:id' element={<Page />} />
           <Route path='/skills/:id' element={<Page />} />
