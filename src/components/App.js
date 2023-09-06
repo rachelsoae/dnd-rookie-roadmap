@@ -11,13 +11,13 @@ import Race from './Race';
 import Class from './Class';
 import Glossary from './Glossary';
 import Resources from './Resources';
-import Error from './Error';
+// import Error from './Error';
 import Page from './Page';
 import { getData } from '../apiCalls';
 import { useEffect, useState } from 'react';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
-function App() {
+const App = () => {
   // remove all these repeated fetch calls and states
   // when a user clicks on a specific page link, route to that page
   // fetch that specific rule
@@ -45,7 +45,7 @@ function App() {
   // const [skill, setSkill] = useState({});
   // const [race, setRace] = useState({});
   // const [charClass, setCharClass] = useState({});
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
 
   // useEffect(() => {
   //   let updateRules = true;
@@ -196,19 +196,34 @@ function App() {
   //   setCharClass(() => classes.find(c => c.index === e.target.id))
   // }
 
-  const getRulesLinks = (category) => {
-    const rulesNames = {
-      spellcasting: ['What is a Spell', 'Casting a Spell'],
-      adventuring: ['Time', 'Resting'],
-      combat: ['The Order of Combat', 'Movement and Position', 'Actions in Combat', 'Making an Attack', 'Damage and Healing'], 
-      'using ability scores': ['Ability Checks', 'Using Each Ability', 'Proficiency Bonus', 'Saving Throws']
-    }
-    
-    return rulesNames[category].map(name => {
-      const index = name.toLowerCase().split(' ').join('-');
-      return <NavLink key={`${index}`} to={`/gameplay-basics/${index}`} id={`${index}`} className='main__link'>{`${name}`}</NavLink>
-    })
+  const NAMES = {
+    rules: {
+        spellcasting: ['What is a Spell', 'Casting a Spell'],
+        adventuring: ['Time', 'Resting'],
+        combat: ['The Order of Combat', 'Movement and Position', 'Actions in Combat', 'Making an Attack', 'Damage and Healing'], 
+        'using ability scores': ['Ability Checks', 'Using Each Ability', 'Proficiency Bonus', 'Saving Throws']
+      },
+    abilities: ['Charisma', 'Constitution', 'Dexterity', 'Intelligence', 'Strength', 'Wisdom'],
+    skills:['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion', 'Sleight of Hand', 'Stealth', 'Survival'],
+    races: ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human', 'Tiefling'],
+    classes:['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
   }
+
+  const getLinks = (directory, category = null) => {
+    if (directory === 'rules') {
+      return NAMES.rules[category].map(name => {
+        const index = name.toLowerCase().split(' ').join('-');
+        return <NavLink key={`${index}`} to={`/gameplay-basics/${index}`} id={`${index}`} className='main__link'>{`${name}`}</NavLink>
+      })
+    }
+  }
+
+  // const getRulesLinks = (category) => {
+  //   return names.rules[category].map(name => {
+  //     const index = name.toLowerCase().split(' ').join('-');
+  //     return <NavLink key={`${index}`} to={`/gameplay-basics/${index}`} id={`${index}`} className='main__link'>{`${name}`}</NavLink>
+  //   })
+  // }
 
   // const getAbilitiesLinks = () => {
   //   const abilitiesNames = ['Charisma', 'Constitution', 'Dexterity', 'Intelligence', 'Strength', 'Wisdom'];
@@ -263,10 +278,6 @@ function App() {
   // }
 
 
-
-
-
-
   return (
     <div className='app'>
       <header className='app__header'>
@@ -274,21 +285,21 @@ function App() {
       </header>
       <section className='app__body'>
         <Nav />
-        {error && <Navigate to='/error' />}
+        {/* {error && <Navigate to='/error' />} */}
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/error' element={<Error />} />
-          <Route path='/gameplay-basics' element={<Gameplay getRulesLinks={getRulesLinks} />} />
-          {/* <Route path='/abilities-and-skills' element={<AbilitySkill getAbilitiesLinks={getAbilitiesLinks} getSkillsLinks={getSkillsLinks} />} />
-          <Route path='/races-and-classes' element={<RaceClass getRacesLinks={getRacesLinks} getClassesLinks={getClassesLinks} />} />
-          <Route path='/glossary' element={<Glossary getAllLinks={getAllLinks} />} />
-          <Route path='/resources' element={<Resources />} /> */}
+          {/* <Route path='/error' element={<Error />} /> */}
+          <Route path='/gameplay-basics' element={<Gameplay getLinks={getLinks} />} />
+          {/* <Route path='/abilities-and-skills' element={<AbilitySkill getAbilitiesLinks={getAbilitiesLinks} getSkillsLinks={getSkillsLinks} />} /> */}
+          {/* <Route path='/races-and-classes' element={<RaceClass getRacesLinks={getRacesLinks} getClassesLinks={getClassesLinks} />} /> */}
+          {/* <Route path='/glossary' element={<Glossary getAllLinks={getAllLinks} />} /> */}
+          {/* <Route path='/resources' element={<Resources />} /> */}
           <Route path='/gameplay-basics/:id' element={<Page />} />
           {/* <Route path='/abilities/:id' element={<Ability ability={ability} />} />
           <Route path='/skills/:id' element={<Skill abilities={abilities} skill={skill} />} />
           <Route path='/races/:id' element={<Race abilities={abilities} race={race} />} />
           <Route path='/classes/:id' element={<Class abilities={abilities} charClass={charClass}/>} /> */}
-          <Route path='*'element={<Error />} />
+          {/* <Route path='*'element={<Error />} /> */}
         </Routes>
       </section>
     </div>

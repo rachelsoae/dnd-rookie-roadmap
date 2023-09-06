@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Gameplay = ({ getRulesLinks }) => { 
+const Gameplay = ({ getLinks }) => { 
   return (
     <main>
       <h2 className='main__heading'>Gameplay Basics</h2>
@@ -9,25 +9,25 @@ const Gameplay = ({ getRulesLinks }) => {
         <section className='main__section'>
           <h3 className='main__subheading'>Spellcasting</h3>
           <div className='main__links'>
-            {getRulesLinks('spellcasting')}
+            {getLinks('rules', 'spellcasting')}
           </div>
         </section>
         <section className='main__section'>
           <h3 className='main__subheading'>Adventuring</h3>
           <div className='main__links'>
-            {getRulesLinks('adventuring')}
+            {getLinks('rules', 'adventuring')}
           </div>
         </section>
         <section className='main__section'>
           <h3 className='main__subheading'>Combat</h3>
           <div className='main__links'>
-            {getRulesLinks('combat')}
+            {getLinks('rules', 'combat')}
           </div>
         </section>
         <section className='main__section'>
           <h3 className='main__subheading'>Ability Scores</h3>
           <div className='main__links'>
-            {getRulesLinks('using ability scores')}
+            {getLinks('rules', 'using ability scores')}
           </div>
         </section>
       </div>
@@ -38,5 +38,5 @@ const Gameplay = ({ getRulesLinks }) => {
 export default Gameplay;
 
 Gameplay.propTypes = {
-  getRulesLinks: PropTypes.func.isRequired
+  getLinks: PropTypes.func.isRequired
 }
