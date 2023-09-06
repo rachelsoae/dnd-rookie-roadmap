@@ -7,8 +7,7 @@ import Skill from './Skill';
 import Class from './Class';
 import Race from './Race';
 
-const Page = () => {
-  
+const Page = ({setError}) => {
   const location = useLocation();
   const [page, setPage] = useState({});
   const [loading, setLoading] = useState(true)
@@ -26,10 +25,12 @@ const Page = () => {
       getData(PATHS[location.pathname.split('/')[1]], location.pathname.split('/')[2].slice(0, 3))
       .then(res => setPage(res))
       .then(() => setLoading(false))
+      .catch(err => setError(err))
     :
       getData(PATHS[location.pathname.split('/')[1]], location.pathname.split('/')[2])
       .then(res => setPage(res))
-      .then(() => setLoading(false))   
+      .then(() => setLoading(false)) 
+      .catch(err => setError(err))  
   }, [])
 
   const renderPage = (path) => {

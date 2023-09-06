@@ -6,13 +6,15 @@ import AbilitySkill from './AbilitySkill';
 import RaceClass from './RaceClass';
 import Glossary from './Glossary';
 import Resources from './Resources';
-// import Error from './Error';
+import Error from './Error';
 import Page from './Page';
 import { getData } from '../apiCalls';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 const App = () => {
+  const [error, setError] = useState('');
+
   const NAMES = {
     'gameplay-basics': {
         spellcasting: ['What is a Spell', 'Casting a Spell'],
@@ -59,21 +61,21 @@ const App = () => {
       </header>
       <section className='app__body'>
         <Nav />
-        {/* {error && <Navigate to='/error' />} */}
+        {error && <Navigate to='/error' />}
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='/error' element={<Error />} /> */}
+          <Route path='/error' element={<Error />} />
           <Route path='/gameplay-basics' element={<Gameplay getLinks={getLinks} />} />
           <Route path='/abilities-and-skills' element={<AbilitySkill getLinks={getLinks} />} />
           <Route path='/races-and-classes' element={<RaceClass getLinks={getLinks} />} />
           <Route path='/glossary' element={<Glossary getAllLinks={getAllLinks} />} />
           <Route path='/resources' element={<Resources />} />
-          <Route path='/gameplay-basics/:id' element={<Page />} />
-          <Route path='/abilities/:id' element={<Page />} />
-          <Route path='/skills/:id' element={<Page />} />
-          <Route path='/races/:id' element={<Page />} />
-          <Route path='/classes/:id' element={<Page />} />
-          {/* <Route path='*'element={<Error />} /> */}
+          <Route path='/gameplay-basics/:id' element={<Page setError={setError} />} />
+          <Route path='/abilities/:id' element={<Page setError={setError} />} />
+          <Route path='/skills/:id' element={<Page setError={setError} />} />
+          <Route path='/races/:id' element={<Page setError={setError} />} />
+          <Route path='/classes/:id' element={<Page setError={setError} />} />
+          <Route path='*'element={<Error />} />
         </Routes>
       </section>
     </div>
