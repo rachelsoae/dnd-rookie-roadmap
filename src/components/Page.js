@@ -9,6 +9,8 @@ import Race from './Race';
 
 const Page = ({setError}) => {
   const location = useLocation();
+  const URL1 = location.pathname.split('/')[1];
+  const URL2 = location.pathname.split('/')[2]
   const [page, setPage] = useState({});
   const [loading, setLoading] = useState(true)
 
@@ -21,13 +23,13 @@ const Page = ({setError}) => {
   }
 
   useEffect(() => {
-    PATHS[location.pathname.split('/')[1]] === 'ability-scores' ? 
-      getData(PATHS[location.pathname.split('/')[1]], location.pathname.split('/')[2].slice(0, 3))
+    PATHS[URL1] === 'ability-scores' ? 
+      getData(PATHS[URL1], URL2.slice(0, 3))
       .then(res => setPage(res))
       .then(() => setLoading(false))
       .catch(err => setError(err))
     :
-      getData(PATHS[location.pathname.split('/')[1]], location.pathname.split('/')[2])
+      getData(PATHS[URL1], URL2)
       .then(res => setPage(res))
       .then(() => setLoading(false)) 
       .catch(err => setError(err))  
@@ -58,7 +60,7 @@ const Page = ({setError}) => {
         <main>
           <h2 className='main__heading'>{page.name}</h2>
           <div className='main__divider'></div>
-          {renderPage(location.pathname.split('/')[1])}
+          {renderPage(URL1)}
         </main>
       }
     </>

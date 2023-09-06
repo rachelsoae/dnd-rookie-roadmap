@@ -19,7 +19,7 @@ const PATHS = {
   'classes': 'classes'
 }
 
-Cypress.Commands.add('getLinks', (directory, category = null, status) => {
+Cypress.Commands.add('getLinks', (status, directory, category = null) => {
   const list = category ? NAMES['gameplay-basics'][category] : NAMES[directory];
   list.forEach(name => {
     const index = name.toLowerCase().split(' ').join('-');
@@ -27,8 +27,9 @@ Cypress.Commands.add('getLinks', (directory, category = null, status) => {
     cy.intercept('GET', `https://www.dnd5eapi.co/api/${PATHS[directory]}/${url}`, {
       statusCode: status,
       fixture: `${url}`
-    })
+    }).as('getRequest')
     cy.get(`[href="/${directory}/${index}"]`).click()
+    cy.wait('@getRequest');
     cy.url().should('eq', `http://localhost:3000/${directory}/${index}` )
     cy.get('h2');
     cy.go('back');
