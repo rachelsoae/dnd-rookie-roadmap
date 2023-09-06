@@ -2,13 +2,8 @@ import '../styles/output.css';
 import Nav from './Nav';
 import Home from './Home';
 import Gameplay from './Gameplay';
-import Rule from './Rule';
 import AbilitySkill from './AbilitySkill';
-import Ability from './Ability';
-import Skill from './Skill';
 import RaceClass from './RaceClass';
-import Race from './Race';
-import Class from './Class';
 import Glossary from './Glossary';
 import Resources from './Resources';
 // import Error from './Error';
@@ -18,23 +13,6 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 const App = () => {
-  // remove all these repeated fetch calls and states
-  // when a user clicks on a specific page link, route to that page
-  // fetch that specific rule
-    // add a loading page/animation
-  // make the get function more dynamic so it takes two arguments
-  // arg1 = left side of URL
-    // create an object
-    // keys are MY left side URLs
-    // values are API left side URLs
-      // 'rules': 'rule-sections'
-  // arg2 = right side of URL
-      // useParams will give ID
-      // add a conditional with the splice for ability-scores
-
-  // when data is received, use it to populate the page
-  // generate different components based on location? or just use different processing operations by location.
-
   const NAMES = {
     'gameplay-basics': {
         spellcasting: ['What is a Spell', 'Casting a Spell'],
@@ -55,21 +33,6 @@ const App = () => {
       return <NavLink key={`${index}`} to={`/${directory}/${index}`} className='main__link'>{`${name}`}</NavLink>
     })
   }
-
-  // const getAllLinks = () => {
-  //   const a = getRulesLinks('spellcasting');
-  //   const b = getRulesLinks('adventuring');
-  //   const c = getRulesLinks('combat');
-  //   const d = getRulesLinks('using ability scores');
-  //   const e = getRacesLinks();
-  //   const f = getClassesLinks();
-  //   const g = getAbilitiesLinks();
-  //   const h = getSkillsLinks();
-
-  //   const allLinks = a.concat(b, c, d, e, f, g, h)
-  //   const alphabetizedLinks = allLinks.sort((a, b) => a.key.localeCompare(b.key))
-  //   return alphabetizedLinks;
-  // }
 
   const getAllLinks = () => {
     const allLinks = []
