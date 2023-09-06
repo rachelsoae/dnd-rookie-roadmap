@@ -30,7 +30,7 @@ Cypress.Commands.add('getLinks', (status, directory, category = null) => {
     }).as('getRequest')
     cy.get(`[href="/${directory}/${index}"]`).click()
     cy.wait('@getRequest');
-    cy.url().should('eq', `http://localhost:3000/${directory}/${index}` )
+    cy.url().should('eq', `http://localhost:3000/${directory}/${index}`)
     cy.get('h2');
     cy.go('back');
   })
