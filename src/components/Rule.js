@@ -1,8 +1,4 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { getData } from '../apiCalls'
-import Page from './Page'
 
 const Rule = ({page}) => {
 
@@ -26,7 +22,7 @@ const Rule = ({page}) => {
 export default Rule;
 
 Rule.propTypes = {
-  rule: PropTypes.shape({
+  page: PropTypes.shape({
     "name": PropTypes.string,
     "index": PropTypes.string,
     "desc": PropTypes.string,
