@@ -26,6 +26,5 @@ const RaceClass = ({ getLinks }) => {
 export default RaceClass;
 
 RaceClass.propTypes = {
-  getRacesLinks: PropTypes.func.isRequired, 
-  getClassesLinks: PropTypes.func.isRequired
+  getLinks: PropTypes.func.isRequired
 }
