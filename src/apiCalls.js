@@ -1,5 +1,5 @@
-const getData = (url) => {
-  return fetch(`https://www.dnd5eapi.co/api/${url}`)
+const getData = (directory, file) => {
+  return fetch(`https://www.dnd5eapi.co/api/${directory}/${file}`)
   .then(response => interpretResponse(response))
 }
 
