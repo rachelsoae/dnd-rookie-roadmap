@@ -55,8 +55,7 @@ I pushed myself in many ways on this project. In addition to navigating the huge
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
 I am super proud of how the app has turned out so far, but the more I work on it the more features I think of to add. One of the features I tried to implement, but ultimately had to roll back for the sake of time, was the addition of a "Related Links" bar. On each content page, if any abilities, skills, or rules are referenced on that page, I wanted to provide a section of "related links" so the user can seamlessly navigate from one subject to another. That is at the top of the list of features I would like to add. Here are a few others:
 
-- Add a loading page to account for loading those 58 fetch calls over slower networks
-- Combine AbilitySkill, RaceClass, and Gameplay into a single Directory component that dynamically renders sections
-- Update styling to include images, including background images
-- Make the "active" tab (Home, Glossary, etc.) change colors
-- Add anchor links for the headings in some of the longer pages, especially the rules
+- Create a singe, dynamically rendered, Directory component
+- Update styling, including subject matter images, background images, and active tab styling
+- Add anchor links for pages with large amounts of content
+- Add a section for "Related Links" on each content page
