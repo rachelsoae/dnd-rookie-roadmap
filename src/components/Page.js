@@ -23,16 +23,11 @@ const Page = ({setError}) => {
   }
 
   useEffect(() => {
-    PATHS[URL1] === 'ability-scores' ? 
-      getData(PATHS[URL1], URL2.slice(0, 3))
-      .then(res => setPage(res))
-      .then(() => setLoading(false))
-      .catch(err => setError(err))
-    :
-      getData(PATHS[URL1], URL2)
-      .then(res => setPage(res))
-      .then(() => setLoading(false)) 
-      .catch(err => setError(err))  
+    const secondUrl = PATHS[URL1] === 'ability-scores' ? URL2.slice(0, 3) : URL2;
+    getData(PATHS[URL1], secondUrl)
+    .then(res => setPage(res))
+    .then(() => setLoading(false))
+    .catch(err => setError(err))
   }, [])
 
   const renderPage = (path) => {
@@ -54,7 +49,10 @@ const Page = ({setError}) => {
     <>
       {
         loading ? 
-        <h2>Loading</h2>
+        <main>
+          <h2 className='main__heading main__loading'>Loading...</h2>
+        </main>
+        
         :
         <main>
           <h2 className='main__heading'>{page.name}</h2>
