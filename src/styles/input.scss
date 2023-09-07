@@ -66,7 +66,9 @@ nav {
   display: flex;
   flex-direction: column;
   margin-top: 1em;
+
 }
+
 
 .nav__link {
   @include header-font;

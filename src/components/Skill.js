@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 
-const Skill = ({skill}) => {
-  const descriptions = skill.desc.map((desc, index) => <p key={index}>{desc}</p>);
+const Skill = ({ page }) => {
+  const descriptions = page.desc.map((desc, index) => <p key={index}>{desc}</p>);
 
   return (
-    <main>
-      <h2 className='main__heading'>{skill.name}</h2>
-      <div className='main__divider'></div>
+    <>
       {descriptions}
-    </main>
+    </>
   )
 }
 
