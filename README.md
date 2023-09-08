@@ -1,5 +1,5 @@
 # D&D: The Rookie's Roadmap
-
+## [Enter Here](https://dnd-rookie-roadmap.vercel.app/)
 ## Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
 This app is a wiki for complete newbies to Dungeons & Dragons and similar role-playing games. The content is broken into a few main categories:
