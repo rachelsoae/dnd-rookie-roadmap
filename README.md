@@ -21,35 +21,25 @@ Happy Adventuring!
 4. Run `npm install` to install required dependencies
 5. run `npm start` to launch the application in your default browser
 
-## Preview of App:
-[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-<img width="1421" alt="Screenshot 2023-08-05 at 5 24 56 PM" src="https://github.com/rachelsoae/dnd-rookie-roadmap/assets/118572701/2a12ee15-dc9f-4163-9748-9376f2b176b6">
-<img width="1420" alt="Screenshot 2023-08-05 at 5 13 06 PM" src="https://github.com/rachelsoae/dnd-rookie-roadmap/assets/118572701/a8501fba-163f-4f6d-b426-a541bcedeff0">
-<img width="1413" alt="Screenshot 2023-08-05 at 5 13 48 PM" src="https://github.com/rachelsoae/dnd-rookie-roadmap/assets/118572701/af32ee65-bfd9-474b-9338-220f7c36a0d1">
-
 ## Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
-- Solo Project
-- Total Time to Complete: 35 hours over 6 days
+- Created by [Rachel Soae Prather](https://github.com/rachelsoae)
+- Thanks to [Ben Holden](https://github.com/BenHolden010) & [Laura Garcia Guerra](https://github.com/lauraguerra1) for help with code reviews
+- Total time to complete initial publication: 35 hours over 6 days
 
 ### Tech:
-- JavaScript
-- React
-- React Router
-- React PropTypes
-- Cypress
-- Sass
-
-## Contributors:
-[//]: <> (Who worked on this application? Link to their GitHubs.)
-- [Rachel Soae Prather](https://github.com/rachelsoae)
-Thanks to [Ben Holden](https://github.com/BenHolden010) for help with code reviews
+![JavaScript][JavaScript]
+[![React][React]][React-url]
+[![Sass][Sass]][Sass-url]
+[![Cypress][Cypress]][Cypress-url]
 
 ## Learning Goals:
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
 This project has been a fantastic exercise in working with RESTful APIs. [The API I used](https://www.dnd5eapi.co/docs/) was rich with information, but every subpage in the application - every ability, skill, race, class, and rule - is stored at an individual endpoint. This presented the challenge of accomplishing 58 fetch calls on page load and create states of arrays for each category without having timing issues. Needless to say, I learned a lot about useEffect (hint: don't forget your cleanup functions).
 
 I pushed myself in many ways on this project. In addition to navigating the huge API, I set up a robust Cypress testing suite, utilizing custom commands to dynamically test every single link in the application, and implemented styling with Sass for the first time.
+
+EDIT: Since first publishing this application, I have enormously refactored it to fetch only the desired information on the load of each content page. This has had great effects on performance of the application; while a greater number of loading states are needed and utilized throughout, only information that is pertinent to the user is fetched. The hardest part of doing it this way is choosing a cute loading state :)
 
 ## Plans For Future:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
@@ -59,3 +49,11 @@ I am super proud of how the app has turned out so far, but the more I work on it
 - Update styling, including subject matter images, background images, and active tab styling
 - Add anchor links for pages with large amounts of content
 - Add a section for "Related Links" on each content page
+
+[JavaScript]: https://img.shields.io/badge/JavaScript-%23F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[React]: https://img.shields.io/badge/React-%2361DAFB?style=for-the-badge&logo=react&logoColor=black
+[React-url]: https://react.dev/
+[Sass]: https://img.shields.io/badge/Sass-%23CC6699?style=for-the-badge&logo=sass&logoColor=white
+[Sass-url]: https://sass-lang.com/
+[Cypress]: https://img.shields.io/badge/Cypress-%2317202C?style=for-the-badge&logo=cypress&logoColor=white
+[Cypress-url]: https://docs.cypress.io/guides/overview/why-cypress
