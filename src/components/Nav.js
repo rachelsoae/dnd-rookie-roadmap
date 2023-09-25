@@ -16,6 +16,4 @@ const Nav = () => {
   )
 }
 
-// for active links do a.active and then put a background color on it
-
 export default Nav;

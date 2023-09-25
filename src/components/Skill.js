@@ -13,7 +13,7 @@ const Skill = ({ page }) => {
 export default Skill;
 
 Skill.propTypes = {
-  skill: PropTypes.shape ({
+  page: PropTypes.shape ({
     "index": PropTypes.string,
     "name": PropTypes.string,
     "desc": PropTypes.arrayOf(PropTypes.string),

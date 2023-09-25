@@ -12,13 +12,13 @@ const Ability = ({ page }) => {
 
 export default Ability;
 
-// Ability.propTypes = {
-//   ability: PropTypes.shape({
-//     "index": PropTypes.string,
-//     "name": PropTypes.string,
-//     "full_name": PropTypes.string,
-//     "desc": PropTypes.arrayOf(PropTypes.string),
-//     "skills": PropTypes.arrayOf(PropTypes.object),
-//     "url": PropTypes.string
-//   })
-// }
+Ability.propTypes = {
+  page: PropTypes.shape({
+    "index": PropTypes.string,
+    "name": PropTypes.string,
+    "full_name": PropTypes.string,
+    "desc": PropTypes.arrayOf(PropTypes.string),
+    "skills": PropTypes.arrayOf(PropTypes.object),
+    "url": PropTypes.string
+  })
+}

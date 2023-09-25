@@ -1,4 +1,4 @@
-const Error = ({error}) => {
+const Error = () => {
   return (
     <main>
       <h2 className='main__heading'>Sorry about this...</h2>

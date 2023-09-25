@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types';
 
 const Class = ({ page }) => {
-  // const savingThrows = charClass.saving_throws.map(savingThrow => {
-  //   let fullAbility = abilities.find(ability => ability.index === savingThrow.index)
-  //   return fullAbility.full_name
-  // })
-
-  // refactor to pass NAMES down
   const savingThrows = page.saving_throws.map(savingThrow => savingThrow.name)
 
   const proficiencies = page.proficiencies.map(proficiency => proficiency.name).filter(proficiency => !proficiency.includes('Saving'))

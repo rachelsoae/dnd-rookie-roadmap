@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getData } from '../apiCalls';
+import PropTypes from 'prop-types';
 import Rule from './Rule';
 import Ability from './Ability';
 import Skill from './Skill';
@@ -10,9 +11,9 @@ import Race from './Race';
 const Page = ({setError}) => {
   const location = useLocation();
   const URL1 = location.pathname.split('/')[1];
-  const URL2 = location.pathname.split('/')[2]
+  const URL2 = location.pathname.split('/')[2];
   const [page, setPage] = useState({});
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const PATHS = {
     'gameplay-basics': 'rule-sections',
@@ -65,3 +66,8 @@ const Page = ({setError}) => {
 }
 
 export default Page;
+
+Page.propTypes = {
+  setError: PropTypes.func.isRequired
+}
+
