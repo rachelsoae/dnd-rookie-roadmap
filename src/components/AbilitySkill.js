@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useParams } from 'react'
 
 const AbilitySkill = ({ getLinks }) => {  
 
